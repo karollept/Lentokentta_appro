@@ -1,2 +1,2 @@
 #jotain uutta
-print("karo teki sen")
+print("karo on genious")
