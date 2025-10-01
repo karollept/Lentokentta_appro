@@ -12,7 +12,7 @@ cursor = yhteys.cursor()
 cursor.execute("USE flight_game")
 
 #poistetaan aina testailuja varten:
-cursor.execute("DROP TABLE IF EXISTS yhteydet")
+cursor.execute("DROP TABLE IF EXISTS yhteys")
 cursor.execute("DROP TABLE IF EXISTS kenttä")
 
 #kenttä taulu:
@@ -137,6 +137,7 @@ cursor.execute("CREATE TABLE IF NOT EXISTS yhteys ("
                "id INT AUTO_INCREMENT PRIMARY KEY,"
                "yhteys_id INT NOT NULL,"
                "kenttä_id INT NOT NULL,"
+               "hinta INT DEFAULT 1000,"
                "FOREIGN KEY (kenttä_id) REFERENCES kenttä(id),"
                "FOREIGN KEY (yhteys_id) REFERENCES kenttä(id)"
                ")ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
