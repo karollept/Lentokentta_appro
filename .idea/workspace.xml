@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/Lentokentta_appro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lentokentta_appro.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jonatan/tietoa/komentoja.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jonatan/taulut/lentokentät ja yhteydet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jonatan/taulut/lentokentät ja yhteydet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jonatan/taulut/taulut_luonti.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jonatan/taulut/taulut_luonti _main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="SQL File" />
       </list>
     </option>
   </component>
@@ -55,6 +57,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.Pelaaja_taulu.executor": "Run",
     "Python.Tietokanta_rakenne_testauiluja.executor": "Run",
+    "Python.lentokentät ja yhteydet.executor": "Run",
     "Python.lentokentät.executor": "Run",
     "Python.main.executor": "Run",
     "Python.mimi.executor": "Debug",
@@ -77,6 +80,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Käyttäjä\PycharmProjects\Lentokentta_appro\Jonatan\tietoa" />
       <recent name="C:\Users\Käyttäjä\PycharmProjects\Lentokentta_appro\Jonatan\minipelit" />
       <recent name="C:\Users\Käyttäjä\PycharmProjects\Lentokentta_appro\Jonatan\taulut" />
     </key>
@@ -99,6 +103,8 @@
       <workItem from="1758879557454" duration="915000" />
       <workItem from="1759229287877" duration="1634000" />
       <workItem from="1759232333351" duration="15482000" />
+      <workItem from="1759353372296" duration="275000" />
+      <workItem from="1759355060034" duration="920000" />
     </task>
     <task id="LOCAL−00001" summary="tehdään asia">
       <option name="closed" value="true" />
@@ -160,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759352821111</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update">
+      <option name="closed" value="true" />
+      <created>1759353603487</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1759353603487</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

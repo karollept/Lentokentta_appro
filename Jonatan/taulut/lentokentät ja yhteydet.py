@@ -133,7 +133,7 @@ yhteydet = [
     (46, 14), (46, 22), (46, 42)        # Franjo Tuđman Airport
 ]
 #yhteydet taulu:
-cursor.execute("CREATE TABLE IF NOT EXISTS yhteydet ("
+cursor.execute("CREATE TABLE IF NOT EXISTS yhteys ("
                "id INT AUTO_INCREMENT PRIMARY KEY,"
                "yhteys_id INT NOT NULL,"
                "kenttä_id INT NOT NULL,"
@@ -144,5 +144,5 @@ cursor.execute("CREATE TABLE IF NOT EXISTS yhteydet ("
 
 #lisätään yhteydet tietokantaan yhteydet tauluun:
 for i in range(len(yhteydet)):
-    cursor.execute("INSERT INTO yhteydet (kenttä_id, yhteys_id) VALUES (%s, %s)",
+    cursor.execute("INSERT INTO yhteys (kenttä_id, yhteys_id) VALUES (%s, %s)",
                    (yhteydet[i]))
