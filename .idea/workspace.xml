@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="tehdään asia">
-      <change beforePath="$PROJECT_DIR$/mimi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mimi.py" afterDir="false" />
+    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/Lentokentta_appro.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lentokentta_appro.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,15 +29,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/karollept/Lentokentta_appro.git",
-    "accountId": "4489ac4a-205a-4949-b647-6037219e7dfe"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Jonatan-Metropolia&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/karollept/Lentokentta_appro.git&quot;,
+    &quot;accountId&quot;: &quot;ff52b3b7-dd2c-4728-b943-cf9954824824&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="33EQ44Lk86Yhw4s5jsJK4A9j2i0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -45,11 +53,20 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.Pelaaja_taulu.executor": "Run",
+    "Python.Tietokanta_rakenne_testauiluja.executor": "Run",
+    "Python.lentokentät.executor": "Run",
+    "Python.main.executor": "Run",
     "Python.mimi.executor": "Debug",
+    "Python.taulujen täyttö.executor": "Run",
+    "Python.taulut.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.wordle_peli.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "karon-branch",
+    "git-widget-placeholder": "Jonatan",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,6 +75,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Käyttäjä\PycharmProjects\Lentokentta_appro\Jonatan\minipelit" />
+      <recent name="C:\Users\Käyttäjä\PycharmProjects\Lentokentta_appro\Jonatan\taulut" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,6 +97,8 @@
       <option name="presentableId" value="Default" />
       <updated>1758879556311</updated>
       <workItem from="1758879557454" duration="915000" />
+      <workItem from="1759229287877" duration="1634000" />
+      <workItem from="1759232333351" duration="15482000" />
     </task>
     <task id="LOCAL−00001" summary="tehdään asia">
       <option name="closed" value="true" />
@@ -103,7 +128,39 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1758880385098</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <option name="closed" value="true" />
+      <created>1759232177537</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759232177537</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update">
+      <option name="closed" value="true" />
+      <created>1759232422024</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759232422024</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update">
+      <option name="closed" value="true" />
+      <created>1759232534299</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759232534299</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update">
+      <option name="closed" value="true" />
+      <created>1759352821111</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1759352821111</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +171,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Jonatan" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -122,9 +191,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="tehdään asia" />
-    <option name="LAST_COMMIT_MESSAGE" value="tehdään asia" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$Tietokanta_rakenne_testauiluja.coverage" NAME="Tietokanta_rakenne_testauiluja Coverage Results" MODIFIED="1759340223951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$test.coverage" NAME="test Coverage Results" MODIFIED="1759350961107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$taulujen_täyttö.coverage" NAME="taulujen täyttö Coverage Results" MODIFIED="1759342728769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$wordle_peli.coverage" NAME="wordle_peli Coverage Results" MODIFIED="1759232108357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
     <SUITE FILE_PATH="coverage/Lentokentta_appro$mimi.coverage" NAME="mimi Coverage Results" MODIFIED="1758879943772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$Pelaaja_taulu.coverage" NAME="Pelaaja_taulu Coverage Results" MODIFIED="1759340777932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$main.coverage" NAME="main Coverage Results" MODIFIED="1759344467509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$lentokentät.coverage" NAME="lentokentät Coverage Results" MODIFIED="1759352703377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan/taulut" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$taulut.coverage" NAME="taulut Coverage Results" MODIFIED="1759342008529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
   </component>
 </project>

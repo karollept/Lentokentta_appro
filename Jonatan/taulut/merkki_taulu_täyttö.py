@@ -11,10 +11,12 @@ cursor = yhteys.cursor()
 
 cursor.execute("USE flight_game")
 
+#tähän laiteaan merkit jotka halutaan tietrokantaan
 merkit = """keltainen vihreä sininen punainen pinkki
 """
 merkki_lista = []
 
+#lisätään merkit muuttujasta merkit tietokantaan
 for i in merkit.split():
     merkki_lista.append(i)
 

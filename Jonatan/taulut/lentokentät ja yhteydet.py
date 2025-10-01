@@ -11,16 +11,18 @@ cursor = yhteys.cursor()
 
 cursor.execute("USE flight_game")
 
+#poistetaan aina testailuja varten:
 cursor.execute("DROP TABLE IF EXISTS yhteydet")
 cursor.execute("DROP TABLE IF EXISTS kenttä")
 
+#kenttä taulu:
 cursor.execute("CREATE TABLE IF NOT EXISTS kenttä ("
                "nimi VARCHAR(100) NOT NULL,"
                "id INT NOT NULL AUTO_INCREMENT PRIMARY KEY"
                ")ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
                )
 
-
+#Lentokentät
 kentät = """Helsinki-Vantaa
 Tukholma
 Kööpenhamina
@@ -70,14 +72,18 @@ Franjo Tuđman Airport
 """
 kenttä_lista=[]
 
+#laitetaan kentät listaan rivinvaihdonjälkeen
 for i in kentät.splitlines():
     kenttä_lista.append(i)
 
+#laitetaan kentätä listasta tietokantaan
 for i in range(len(kenttä_lista)):
     cursor.execute("INSERT INTO kenttä (nimi) VALUES (%s)",
                    (kenttä_lista[i],))
 
 
+
+# tässä yhteydet lentokenttien välillä:
 yhteydet = [
     (1, 2), (1, 3), (1, 4),             # Helsinki-Vantaa
     (2, 1), (2, 29), (2, 11),           # Tukholma
@@ -126,6 +132,7 @@ yhteydet = [
     (45, 13), (45, 36), (45, 5),        # Vienna International Airport
     (46, 14), (46, 22), (46, 42)        # Franjo Tuđman Airport
 ]
+#yhteydet taulu:
 cursor.execute("CREATE TABLE IF NOT EXISTS yhteydet ("
                "id INT AUTO_INCREMENT PRIMARY KEY,"
                "yhteys_id INT NOT NULL,"
@@ -135,6 +142,7 @@ cursor.execute("CREATE TABLE IF NOT EXISTS yhteydet ("
                ")ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;"
                )
 
+#lisätään yhteydet tietokantaan yhteydet tauluun:
 for i in range(len(yhteydet)):
     cursor.execute("INSERT INTO yhteydet (kenttä_id, yhteys_id) VALUES (%s, %s)",
                    (yhteydet[i]))
