@@ -2,6 +2,6 @@
 from game import raw
 
 print("karo on genious")
-name = "haw"
 print ("Hellow!")
+name = "haw"
 print(raw)
