@@ -1,3 +1,5 @@
+from mimi import name
+
 raw = harlow
-import name from mimi
+
 print(name)
