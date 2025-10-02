@@ -13,5 +13,6 @@ update airport set minigame_id =
 (select id from minigame where name = "Numeron arvaus") where ident = "EFHK";
 
 cursor.execute("INSERT INTO player (budjet) VALUES (%s)",
-              ("100",) where name = "karo")
+              ("1000",) where name = "karo")
+
 
