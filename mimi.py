@@ -1,4 +1,5 @@
 #jotain uutta
 print("karo on genious")
-name = "sir"
+name = Haw
 print ("Hellow!")
+print(raw)
