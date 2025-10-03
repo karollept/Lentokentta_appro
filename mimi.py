@@ -3,5 +3,6 @@ from game import raw
 
 print("karo on genious")
 print ("Hellow!")
-name = "haw"
+nIM = "haw"
 print(raw)
+print(nIM)
