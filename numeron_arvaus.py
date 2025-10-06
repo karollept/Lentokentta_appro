@@ -2,9 +2,9 @@ import random
 
 def numeron_arvauspeli():
     print("Tervetuloa numeron arvauspeliin!")
-    print("Ajattelen numeroa 1 ja 10 välillä...")
+    print("Ajattelen numeroa 1 ja 9 välillä...")
     
-    oikea_numero = random.randint(1, 10)
+    oikea_numero = random.randint(1, 9)
     arvaukset = 0
     
     while True:
