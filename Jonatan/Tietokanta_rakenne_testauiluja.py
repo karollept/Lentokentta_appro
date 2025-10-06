@@ -122,3 +122,4 @@ WHERE pelaaja.nimi='Jonatan';
 
 tulos=cursor.fetchall()
 print(tulos)
+

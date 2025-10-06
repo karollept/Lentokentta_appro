@@ -117,7 +117,10 @@ def wordle(loop, green, yellow, reset):
 
     return voitto_wordle
 
-win_wordle = wordle(loop_wordle, green, yellow, reset)
 
 
-print(win_wordle)
+
+
+
+if __name__ == '__main__':
+    wordle(loop_wordle, green, yellow, reset)
