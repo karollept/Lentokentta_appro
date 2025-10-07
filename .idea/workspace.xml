@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="tehdään asia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mimi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mimi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +86,7 @@
       <workItem from="1758879557454" duration="1877000" />
       <workItem from="1759056904619" duration="1022000" />
       <workItem from="1759433168453" duration="14349000" />
-      <workItem from="1759838482082" duration="706000" />
+      <workItem from="1759838482082" duration="2105000" />
     </task>
     <task id="LOCAL−00001" summary="tehdään asia">
       <option name="closed" value="true" />
@@ -228,7 +228,21 @@
       <option name="presentableId" value="LOCAL−00020" />
       <updated>1759825345765</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL−00021" summary="tehdään asia">
+      <option name="closed" value="true" />
+      <created>1759839215056</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1759839215056</updated>
+    </task>
+    <task id="LOCAL−00022" summary="tehdään asia">
+      <option name="closed" value="true" />
+      <created>1759840362680</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1759840362680</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
