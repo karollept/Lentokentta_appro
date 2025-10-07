@@ -1,10 +1,12 @@
 import mysql.connector
 
+
 yhteys = mysql.connector.connect(
     host="localhost",
     user="JonatanGM",
     password = "123",
     autocommit = True,
+    db = "lk_approt",
     port = 3306
 )
 cursor = yhteys.cursor()
