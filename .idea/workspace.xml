@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="tehdään asia">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mimi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mimi.py" afterDir="false" />
-    </list>
+    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="tehdään asia" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +83,7 @@
       <workItem from="1758879557454" duration="1877000" />
       <workItem from="1759056904619" duration="1022000" />
       <workItem from="1759433168453" duration="14349000" />
-      <workItem from="1759838482082" duration="3680000" />
+      <workItem from="1759838482082" duration="4012000" />
     </task>
     <task id="LOCAL−00001" summary="tehdään asia">
       <option name="closed" value="true" />
@@ -271,7 +267,14 @@
       <option name="presentableId" value="LOCAL−00026" />
       <updated>1759842065314</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL−00027" summary="tehdään asia">
+      <option name="closed" value="true" />
+      <created>1759842478926</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1759842478926</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
