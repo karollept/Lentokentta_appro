@@ -113,7 +113,7 @@ while budget > 0:
 
     budget, location = update_player(choise, player, budget)
 
-#EETN ei olemassa
+#EETN ei olemassaa
 
 
 

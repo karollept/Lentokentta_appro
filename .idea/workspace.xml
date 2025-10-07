@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="update">
+    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="Lentokentiltä siirtyminen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jonatan/Tietokanta_rakenne_testauiluja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jonatan/Tietokanta_rakenne_testauiluja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jonatan/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jonatan/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jonatan/minipelit/wordle_peli.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jonatan/wordle_peli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +130,7 @@
       <workItem from="1759526520659" duration="18000" />
       <workItem from="1759526596333" duration="11000" />
       <workItem from="1759603500383" duration="45000" />
-      <workItem from="1759788857726" duration="6189000" />
+      <workItem from="1759788857726" duration="7242000" />
     </task>
     <task id="LOCAL−00001" summary="tehdään asia">
       <option name="closed" value="true" />
@@ -235,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759603540574</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Lentokentiltä siirtyminen">
+      <option name="closed" value="true" />
+      <created>1759795116089</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1759795116089</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +273,8 @@
     <MESSAGE value="tehdään asia" />
     <MESSAGE value="pää koodi pelaajan valinta, sekä lentokenttien välillä lento :)" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Lentokentiltä siirtyminen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lentokentiltä siirtyminen" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lentokentta_appro$test.coverage" NAME="test Coverage Results" MODIFIED="1759350961107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jonatan" />
