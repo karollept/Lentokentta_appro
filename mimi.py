@@ -15,11 +15,11 @@ def highscore():
     sql = """
     SELECT 
         screen_name AS "Pelaaja",
-        COUNT(token_id) AS "Merkkien määrä"
+        COUNT(token_id) AS 'Merkkien määrä'
     FROM accomplishment
-    JOIN player ON player_id = id
+    JOIN player ON accomplishment.player_id = player.id
     GROUP BY player.id
-    ORDER BY "Merkkien määrä" DESC;
+    ORDER BY 'Merkkien määrä' DESC;
     """
     cursor.execute(sql)
     tulokset = cursor.fetchall()
@@ -31,3 +31,4 @@ def highscore():
         print(f"{pelaaja:15} | {maara} merkkiä")
 
     cursor.close()
+highscore()
