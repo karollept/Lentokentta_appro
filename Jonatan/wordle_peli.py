@@ -11,10 +11,7 @@ cursor = yhteys.cursor()
 
 cursor.execute("USE flight_game")
 
-green = "\033[32m"
-yellow = "\033[33m"
-reset = "\033[0m"
-loop_wordle = 0
+
 
 
 def vastaus_wordle_def():
@@ -120,7 +117,10 @@ def wordle(loop, green, yellow, reset):
 
 
 
-
+green = "\033[32m"
+yellow = "\033[33m"
+reset = "\033[0m"
+loop_wordle = 0
 
 if __name__ == '__main__':
     wordle(loop_wordle, green, yellow, reset)

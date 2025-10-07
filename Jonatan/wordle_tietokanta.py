@@ -11,7 +11,7 @@ yhteys = mysql.connector.connect(
 )
 cursor = yhteys.cursor()
 
-cursor.execute("USE flight_game")
+
 
 cursor.execute("DROP TABLE IF EXISTS wordle")
 
