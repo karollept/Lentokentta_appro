@@ -100,6 +100,7 @@ budget = 20000
 player = None
 while player == None:
     player = choose_player(location, budget)  #pelinimen valinta
+
 print("Tervetuloa " + nimi + " pelaamaan lentokenttäappro peliä."
       "Tässä pelissä pääset matkaamaan lentokenttien välillä tehden minipelejä haalarimerkkejä varten."
       "Pelin voit voittaa kuluttamalla kaiken opintolainan ja onnistumalla saada tarpeeksi haalarimerkkejä.")
@@ -110,3 +111,5 @@ while budget > 0:
     choise= flight_choise(connections, budget)
 
     budget, location = update_player(choise, player, budget)
+
+print("Olet kuluttanut opintolainan loppuun")
