@@ -95,9 +95,22 @@ def update_player(tuple, player, budget):
     return new_budget, new_location
 
 def play_game(location):
-    c = yhteys.cursor()
+    cursor = yhteys.cursor()
 
-    sql= ("SELECT minigame_id FROM airport WHERE ident = player.location")
+    sql= ("SELECT minigame.name FROM airport "
+          "JOIN minigame ON airport.minigame_id = minigame.id"
+          " WHERE ident = %s")
+
+    cursor.execute(sql, (location,))
+    tulos = cursor.fetchone()
+
+    if tulos:
+        minipelin_nimi = tulos[0]
+        print(f"Pelaaja on kentällä {location}, minipeli on: {minipelin_nimi}")
+        return minipelin_nimi
+    else:
+        print(f"Kentälle {location} ei ole liitetty minipeliä.")
+        return None
 
 def kivi_sakset_paperi():
     print("Tervetuloa Kivi–Sakset–Paperi -peliin! Pelataan 3 kierrosta.")
