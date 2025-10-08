@@ -93,23 +93,38 @@ def update_player(tuple, player, budget):
 
     return new_budget, new_location
 
-def play_game(location):
+def play_game():
     cursor = yhteys.cursor()
 
-    sql= ("SELECT minigame.name FROM airport "
-          "JOIN minigame ON airport.minigame_id = minigame.id"
-          " WHERE ident = %s")
+    sql = (
+        "SELECT airport.ident, minigame.name FROM airport "
+        "JOIN minigame ON airport.minigame_id = minigame.id "
+        "JOIN player ON airport.ident = player.location "
+        "WHERE player.id = 6")
 
-    cursor.execute(sql, (location,))
+    cursor.execute(sql)
     tulos = cursor.fetchone()
 
     if tulos:
-        minipelin_nimi = tulos[0]
+        location = tulos[0]
+        minipelin_nimi = tulos[1]
         print(f"Pelaaja on kentällä {location}, minipeli on: {minipelin_nimi}")
-        return minipelin_nimi
+
+        # Käynnistä minipeli nimen perusteella
+        if minipelin_nimi == "Kivi_sakset_paperi":
+            kivi_sakset_paperi()
+        elif minipelin_nimi == "Wordle":
+            wordle()
+        elif minipelin_nimi == "Hirsipuu":
+            hirsipuu()
+        elif minipelin_nimi == "Matikkavisa":
+            matikkavisa()
+        elif minipelin_nimi == "Blackjack":
+            blackjack()
+        else:
+            print("Tuntematon minipeli tietokannassa.")
     else:
-        print(f"Kentälle {location} ei ole liitetty minipeliä.")
-        return None
+        print("Kentälle ei ole liitetty minipeliä.")
 
 def kivi_sakset_paperi():
     print("Tervetuloa Kivi–Sakset–Paperi -peliin! Pelataan 3 kierrosta.")
@@ -195,6 +210,8 @@ while budget > 0:
     choise= flight_choise(connections, budget)
 
     budget, location = update_player(choise, player, budget)
+
+    play_game()
 
 print("Olet kuluttanut opintolainan loppuun")
 
