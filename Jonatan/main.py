@@ -3,8 +3,8 @@ import mysql.connector
 
 yhteys = mysql.connector.connect(
     host="localhost",
-    user="user",
-    password = "password",
+    user="JonatanGM",
+    password = "123",
     autocommit = True,
     db = "lk_approt",
     port = 3306
@@ -19,6 +19,7 @@ def choose_player(location, budget):
     if nimi == "":
         print("Tyhjää merkkijona ei hyväksytä.")
         return None
+
 
     vapaa = is_name_taken(nimi)
 
@@ -94,6 +95,8 @@ def update_player(tuple, player, budget):
     return new_budget, new_location
 
 
+
+
 location = "EFHK"
 budget = 20000
 
@@ -101,37 +104,17 @@ player = None
 while player == None:
     player = choose_player(location, budget)  #pelinimen valinta
 
-print("Tervetuloa " + nimi + " pelaamaan lentokenttäappro peliä."
-      "Tässä pelissä pääset matkaamaan lentokenttien välillä tehden minipelejä haalarimerkkejä varten."
-      "Pelin voit voittaa kuluttamalla kaiken opintolainan ja onnistumalla saada tarpeeksi haalarimerkkejä.")
 
 while budget > 0:
     connections= flight_paths(location)
 
     choise= flight_choise(connections, budget)
 
+
     budget, location = update_player(choise, player, budget)
 
-print("Olet kuluttanut opintolainan loppuun")
+#EETN ei olemassaa
 
-def highscore():
-    sql = """
-    SELECT 
-        screen_name AS "Pelaaja",
-        COUNT(token_id) AS 'Merkkien määrä'
-    FROM accomplishment
-    JOIN player ON accomplishment.player_id = player.id
-    GROUP BY player.id
-    ORDER BY 'Merkkien määrä' DESC;
-    """
-    cursor.execute(sql)
-    tulokset = cursor.fetchall()
 
-    print("🏆 Highscore – kerätyt merkit")
-    print("-" * 40)
 
-    for pelaaja, maara in tulokset:
-        print(f"{pelaaja:15} | {maara} merkkiä")
 
-    cursor.close()
-highscore()

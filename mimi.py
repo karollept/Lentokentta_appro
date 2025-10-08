@@ -32,14 +32,3 @@ def highscore():
 
     cursor.close()
 highscore()
-
-    c.execute(sql, (location,))
-    tulos = c.fetchone()
-
-    if tulos:
-        minipelin_nimi = tulos[0]
-        print(f"Pelaaja on kentällä {location}, minipeli on: {minipelin_nimi}")
-        return minipelin_nimi
-    else:
-        print(f"Kentälle {location} ei ole liitetty minipeliä.")
-        return None
