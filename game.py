@@ -596,7 +596,7 @@ def token(location):
     player_result = cursor.fetchone()
 
     c.execute("""
-            INSERT INTO accomplished (token_id, player_id)
+            INSERT INTO accomplishment (token_id, player_id)
             VALUES (%s, %s)
         """, (token_result, player_result))
     c.close()
