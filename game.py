@@ -93,7 +93,6 @@ def update_player(tuple, player, budget):
 
     return new_budget, new_location
 
-
 def play_game(location):
     cursor = yhteys.cursor()
 
