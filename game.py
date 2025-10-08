@@ -94,67 +94,6 @@ def update_player(tuple, player, budget):
 
     return new_budget, new_location
 
-def play_game(location):
-    cursor = yhteys.cursor()
-
-    sql= ("SELECT minigame.name FROM airport "
-          "JOIN minigame ON airport.minigame_id = minigame.id"
-          " WHERE ident = %s")
-
-    cursor.execute(sql, (location,))
-    tulos = cursor.fetchone()
-
-    if tulos:
-        minipelin_nimi = tulos[0]
-        print(f"Pelaaja on kentällä {location}, minipeli on: {minipelin_nimi}")
-        return minipelin_nimi
-    else:
-        print(f"Kentälle {location} ei ole liitetty minipeliä.")
-        return None
-
-def kivi_sakset_paperi():
-    print("Tervetuloa Kivi–Sakset–Paperi -peliin! Pelataan 3 kierrosta.")
-    vaihtoehdot = ["kivi", "sakset", "paperi"]
-    pelaajan_pisteet = 0
-    tietokoneen_pisteet = 0
-
-    for kierros in range(1, 4):
-        print(f"\nKierros {kierros}:")
-        while True:
-            pelaaja = input("Valitse kivi, sakset tai paperi: ").lower()
-            if pelaaja not in vaihtoehdot:
-                print("Virheellinen valinta. Yritä uudelleen.")
-                continue
-            break
-
-        tietokone = random.choice(vaihtoehdot)
-        print(f"Tietokone valitsi: {tietokone}")
-
-        if pelaaja == tietokone:
-            print("Tasapeli!")
-        elif (pelaaja == "kivi" and tietokone == "sakset") or \
-                (pelaaja == "sakset" and tietokone == "paperi") or \
-                (pelaaja == "paperi" and tietokone == "kivi"):
-            print("Voitit kierroksen!")
-            pelaajan_pisteet += 1
-        else:
-            print("Hävisit kierroksen!")
-            tietokoneen_pisteet += 1
-
-    print("\nPeli päättyi!")
-    print(f"Pisteet - Pelaaja: {pelaajan_pisteet}, Tietokone: {tietokoneen_pisteet}")
-
-    if pelaajan_pisteet > tietokoneen_pisteet:
-        won = True
-        print("Onneksi olkoon! Voitit pelin!")
-    elif pelaajan_pisteet < tietokoneen_pisteet:
-        print("Hävisit pelin!")
-        won = False
-    else:
-        print("Peli päättyi tasapeliin!")
-        won = False
-
-
 location = "EFHK"
 budget = 20000
 
