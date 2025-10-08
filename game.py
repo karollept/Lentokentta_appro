@@ -570,9 +570,12 @@ def matikkavisa():
             break
         if user_input != vastaus:
             print(f"Väärin! Oikea vastaus on {vastaus}. Hävisit pelin.")
+            win = False
             break
     else:
         print("Onneksi olkoon! Vastasit kaikki oikein ja voitit pelin.")
+        win = True
+    return win
 
 
 def tarina(location):
