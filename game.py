@@ -596,7 +596,12 @@ while budget > 0:
 
     budget, location = update_player(choise, player, budget)
 
+    tarina(location)
+
     play_game()
+    
+    if voitto == True:
+        token(location)
 
 print("Olet kuluttanut opintolainan loppuun")
 
