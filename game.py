@@ -306,231 +306,229 @@ def wordle():
 
     if __name__ == '__main__':
         wordle(loop_wordle, green, yellow, reset)
+def hirsipuu():
+    def arvaus_hirsipuu_def(arvattujenlista):
+        sana_arvaus = False
+        arvaus = input(f"Arvaa 1 kirjain tai koko sana:")
+        arvaus = arvaus.upper()                             #pelaajan arvaus, hirsipuu
 
-def arvaus_hirsipuu_def(arvattujenlista):
-    sana_arvaus = False
-    arvaus = input(f"Arvaa 1 kirjain tai koko sana:")
-    arvaus = arvaus.upper()                             #pelaajan arvaus, hirsipuu
-
-    if len(arvaus) >1:
-        sana_arvaus = True
-    else:
-        arvattujenlista.append(arvaus)
-
-    return arvaus, sana_arvaus, arvattujenlista
-
-
-
-
-def difficulty_hirsipuu_def():
-    loop = True
-
-    while loop == True:
-        difficulty = input("Valitse vaikeus taso, hard/easy")
-
-        if difficulty == "easy":            #Vaikeuden valinta, hirsipuu
-            loop=False
-            difficulty = 1
-        elif difficulty == "hard":
-            loop=False
-            difficulty = 0
-
-    return difficulty
-
-
-# hakee vastauksen sekä luo score pöydän
-def vastaus_hirsipuu_def(difficulty):
-    id = random.randint(1,103)
-    score_table = []
-
-    cursor.execute("SELECT sana_hard, sana_easy FROM hirsipuu WHERE id = %s", (id,))
-    haettu_sana = cursor.fetchall()
-
-    for i in range(len(haettu_sana[0][difficulty])):
-        score_table.append("_")
-
-    return haettu_sana[0][difficulty], score_table
-
-
-def lettercheck_hirsipuu(vastaus, arvaus):
-    kirjaimet = []
-    tulos = []
-    for i in vastaus:
-        kirjaimet.append(i)
-
-    for i in range(len(vastaus)):
-        if arvaus == kirjaimet[i]:
-            tulos.append(kirjaimet[i])
+        if len(arvaus) >1:
+            sana_arvaus = True
         else:
-            tulos.append("_")
+            arvattujenlista.append(arvaus)
 
-    return tulos
-
-
-def finalscore_hirsipuu_def(roundscore, scoreboard):
-    for i in range(len(scoreboard)):
-        if scoreboard[i] == "_":
-            scoreboard.append(roundscore[i])
-        else:                                      #tekee uuden scoreboard
-            scoreboard.append(scoreboard[i])
-
-    for i in range(len(roundscore)):
-        scoreboard.pop(0) #poistaa vanhat
-
-    return scoreboard
-
-def win_check_hirsipuu_def(arvaus, vastaus, loop, scoreboard):
-    vastaus_list = list(vastaus)
-
-    if arvaus in vastaus_list:
-        loop = loop -1          #jos oikea kirjain niin kierros luku ei mene alaspäin
-
-    if arvaus==vastaus or vastaus_list==scoreboard:
-        win=True                                       #tarkistetaan onko pelaaja voittanut
-    else:
-        win=False
-
-    return win, loop
+        return arvaus, sana_arvaus, arvattujenlista
 
 
-def hirsipuu ():
+    def difficulty_hirsipuu_def():
+        loop = True
 
-    rightletter_hirsipuu = 0
-    loop_hirsipuu = 0
-    arvatut_kirjaimet_hirsipuu = []
-    win_hirsipuu = False
-    win = True
+        while loop == True:
+            difficulty = input("Valitse vaikeus taso, hard/easy")
+
+            if difficulty == "easy":            #Vaikeuden valinta, hirsipuu
+                loop=False
+                difficulty = 1
+            elif difficulty == "hard":
+                loop=False
+                difficulty = 0
+
+        return difficulty
 
 
-    difficulty_hirsipuu = difficulty_hirsipuu_def()
-    vastaus_hirsipuu, scoreboard_hirsipuu = vastaus_hirsipuu_def(difficulty_hirsipuu)
+    # hakee vastauksen sekä luo score pöydän
+    def vastaus_hirsipuu_def(difficulty):
+        id = random.randint(1,103)
+        score_table = []
 
-    while loop_hirsipuu < 10 and win_hirsipuu == False:
+        cursor.execute("SELECT sana_hard, sana_easy FROM hirsipuu WHERE id = %s", (id,))
+        haettu_sana = cursor.fetchall()
 
-        arvaus_hirsipuu, is_answer, arvatut_kirjaimet_hirsipuu = arvaus_hirsipuu_def(
-            arvatut_kirjaimet_hirsipuu)  # arvaus_hirsipuu = A-Ö tai sana, is_answer = boolean
+        for i in range(len(haettu_sana[0][difficulty])):
+            score_table.append("_")
 
-        roundscore_hirsipuu = lettercheck_hirsipuu(vastaus_hirsipuu, arvaus_hirsipuu)
-        scoreboard_hirsipuu = finalscore_hirsipuu_def(roundscore_hirsipuu, scoreboard_hirsipuu)
+        return haettu_sana[0][difficulty], score_table
 
-        win_hirsipuu, loop_hirsipuu = win_check_hirsipuu_def(arvaus_hirsipuu, vastaus_hirsipuu, loop_hirsipuu,
-                                                             scoreboard_hirsipuu)
-        loop_hirsipuu = loop_hirsipuu + 1
 
-        if win_hirsipuu == False:
-            print(f"{scoreboard_hirsipuu}<--Arvattava sana\n"
-                  f"\n"
-                  f"{arvatut_kirjaimet_hirsipuu}<--Arvatut kirjaimet\n"
-                  f"\n"
-                  f"\n"
-                  f"Arvauksi jäljellä :{10 - loop_hirsipuu}")
+    def lettercheck_hirsipuu(vastaus, arvaus):
+        kirjaimet = []
+        tulos = []
+        for i in vastaus:
+            kirjaimet.append(i)
 
-    if win_hirsipuu == True:
+        for i in range(len(vastaus)):
+            if arvaus == kirjaimet[i]:
+                tulos.append(kirjaimet[i])
+            else:
+                tulos.append("_")
+
+        return tulos
+
+
+    def finalscore_hirsipuu_def(roundscore, scoreboard):
+        for i in range(len(scoreboard)):
+            if scoreboard[i] == "_":
+                scoreboard.append(roundscore[i])
+            else:                                      #tekee uuden scoreboard
+                scoreboard.append(scoreboard[i])
+
+        for i in range(len(roundscore)):
+            scoreboard.pop(0) #poistaa vanhat
+
+        return scoreboard
+
+    def win_check_hirsipuu_def(arvaus, vastaus, loop, scoreboard):
+        vastaus_list = list(vastaus)
+
+        if arvaus in vastaus_list:
+            loop = loop -1          #jos oikea kirjain niin kierros luku ei mene alaspäin
+
+        if arvaus==vastaus or vastaus_list==scoreboard:
+            win=True                                       #tarkistetaan onko pelaaja voittanut
+        else:
+            win=False
+
+        return win, loop
+
+
+    def hirsipuu_game ():
+
+        rightletter_hirsipuu = 0
+        loop_hirsipuu = 0
+        arvatut_kirjaimet_hirsipuu = []
+        win_hirsipuu = False
         win = True
-        print("Voitit pelin!")
-    else:
-        print(f"Hävisit pelin:(\n"
-              f"Oikea vastaus oli {vastaus_hirsipuu}")
-        win = False
-    return win
 
 
-def init_db():
-    conn = sqlite3.connect("blackjack.db")
-    c = conn.cursor()
+        difficulty_hirsipuu = difficulty_hirsipuu_def()
+        vastaus_hirsipuu, scoreboard_hirsipuu = vastaus_hirsipuu_def(difficulty_hirsipuu)
 
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS games
-              (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                result TEXT,
-                player_hand TEXT,
-                dealer_hand TEXT)
-              """)
-    conn.commit()
-    conn.close()
+        while loop_hirsipuu < 10 and win_hirsipuu == False:
 
+            arvaus_hirsipuu, is_answer, arvatut_kirjaimet_hirsipuu = arvaus_hirsipuu_def(
+                arvatut_kirjaimet_hirsipuu)  # arvaus_hirsipuu = A-Ö tai sana, is_answer = boolean
 
-def record_result(result, player_hand, dealer_hand):
-    conn = sqlite3.connect("blackjack.db")
-    c = conn.cursor()
-    c.execute("INSERT INTO games (result, player_hand, dealer_hand) VALUES (?, ?, ?)",
-              (result, str(player_hand), str(dealer_hand)))
-    conn.commit()
-    conn.close()
+            roundscore_hirsipuu = lettercheck_hirsipuu(vastaus_hirsipuu, arvaus_hirsipuu)
+            scoreboard_hirsipuu = finalscore_hirsipuu_def(roundscore_hirsipuu, scoreboard_hirsipuu)
 
+            win_hirsipuu, loop_hirsipuu = win_check_hirsipuu_def(arvaus_hirsipuu, vastaus_hirsipuu, loop_hirsipuu,
+                                                                 scoreboard_hirsipuu)
+            loop_hirsipuu = loop_hirsipuu + 1
 
-# BLACKJACK
-cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+            if win_hirsipuu == False:
+                print(f"{scoreboard_hirsipuu}<--Arvattava sana\n"
+                      f"\n"
+                      f"{arvatut_kirjaimet_hirsipuu}<--Arvatut kirjaimet\n"
+                      f"\n"
+                      f"\n"
+                      f"Arvauksi jäljellä :{10 - loop_hirsipuu}")
 
-
-def card_value(card):
-    if card in ["J", "Q", "K"]:
-        return 10
-    elif card == "A":
-        return 11
-    else:
-        return int(card)
-
-
-def draw_card(deck):
-    return deck.pop()
-
-
-def calculate_score(hand):
-    score = sum(card_value(c) for c in hand)
-    # jos yli 21 ja kädessä ässiä, vähennetään arvoa 11 -> 1
-    aces = hand.count("A")
-    while score > 21 and aces > 0:
-        score -= 10  # muutetaan yksi ässä arvosta 11 -> 1
-        aces -= 1
-    return score
-
+        if win_hirsipuu == True:
+            win = True
+            print("Voitit pelin!")
+        else:
+            print(f"Hävisit pelin:(\n"
+                  f"Oikea vastaus oli {vastaus_hirsipuu}")
+            win = False
+        return win
 
 def blackjack():
-    # Luodaan korttipakka (52 korttia)
-    deck = cards * 4
-    random.shuffle(deck)
+    def init_db():
+        conn = sqlite3.connect("blackjack.db")
+        c = conn.cursor()
 
-    player_hand = [draw_card(deck), draw_card(deck)]
-    dealer_hand = [draw_card(deck), draw_card(deck)]
+        c.execute("""
+                  CREATE TABLE IF NOT EXISTS games
+                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                   result TEXT,
+                   player_hand TEXT,
+                   dealer_hand TEXT)
+                  """)
+        conn.commit()
+        conn.close()
 
-    # PELAAJAN VUORO
-    while True:
-        print(f"Pelaajan käsi: {player_hand} (arvo: {calculate_score(player_hand)})")
-        if calculate_score(player_hand) > 21:
-            print("Yli 21! Hävisit.")
-            return "LOSE", player_hand, dealer_hand
-        action = input("Otatko lisää (h) vai jäät (j)? ").lower()
-        if action == "h":
-            player_hand.append(draw_card(deck))
+
+    def record_result(result, player_hand, dealer_hand):
+        conn = sqlite3.connect("blackjack.db")
+        c = conn.cursor()
+        c.execute("INSERT INTO games (result, player_hand, dealer_hand) VALUES (?, ?, ?)",
+                  (result, str(player_hand), str(dealer_hand)))
+        conn.commit()
+        conn.close()
+
+
+    # BLACKJACK
+    cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+
+
+    def card_value(card):
+        if card in ["J", "Q", "K"]:
+            return 10
+        elif card == "A":
+            return 11
         else:
-            break
-
-    # JAKAJAN VUORO
-    while calculate_score(dealer_hand) < 17:
-        dealer_hand.append(draw_card(deck))
-
-    player_score = calculate_score(player_hand)
-    dealer_score = calculate_score(dealer_hand)
-
-    print(f"Jakajan käsi: {dealer_hand} (arvo: {dealer_score})")
-
-    if dealer_score > 21 or player_score > dealer_score:
-        print("Voitit!")
-        return "WIN", player_hand, dealer_hand
-    elif player_score == dealer_score:
-        print("Tasapeli.")
-        return "DRAW", player_hand, dealer_hand
-    else:
-        print("Hävisit.")
-        return "LOSE", player_hand, dealer_hand
+            return int(card)
 
 
-# MAIN
-if __name__ == "__main__":
-    init_db()
-    result, player_hand, dealer_hand = blackjack()
-    record_result(result, player_hand, dealer_hand)
+    def draw_card(deck):
+        return deck.pop()
+
+
+    def calculate_score(hand):
+        score = sum(card_value(c) for c in hand)
+        # jos yli 21 ja kädessä ässiä, vähennetään arvoa 11 -> 1
+        aces = hand.count("A")
+        while score > 21 and aces > 0:
+            score -= 10  # muutetaan yksi ässä arvosta 11 -> 1
+            aces -= 1
+        return score
+
+
+    def blackjack_game():
+        # Luodaan korttipakka (52 korttia)
+        deck = cards * 4
+        random.shuffle(deck)
+
+        player_hand = [draw_card(deck), draw_card(deck)]
+        dealer_hand = [draw_card(deck), draw_card(deck)]
+
+        # PELAAJAN VUORO
+        while True:
+            print(f"Pelaajan käsi: {player_hand} (arvo: {calculate_score(player_hand)})")
+            if calculate_score(player_hand) > 21:
+                print("Yli 21! Hävisit.")
+                return "LOSE", player_hand, dealer_hand
+            action = input("Otatko lisää (h) vai jäät (j)? ").lower()
+            if action == "h":
+                player_hand.append(draw_card(deck))
+            else:
+                break
+
+        # JAKAJAN VUORO
+        while calculate_score(dealer_hand) < 17:
+            dealer_hand.append(draw_card(deck))
+
+        player_score = calculate_score(player_hand)
+        dealer_score = calculate_score(dealer_hand)
+
+        print(f"Jakajan käsi: {dealer_hand} (arvo: {dealer_score})")
+
+        if dealer_score > 21 or player_score > dealer_score:
+            print("Voitit!")
+            return "WIN", player_hand, dealer_hand
+        elif player_score == dealer_score:
+            print("Tasapeli.")
+            return "DRAW", player_hand, dealer_hand
+        else:
+            print("Hävisit.")
+            return "LOSE", player_hand, dealer_hand
+
+
+    # MAIN
+    if __name__ == "__main__":
+        init_db()
+        result, player_hand, dealer_hand = blackjack()
+        record_result(result, player_hand, dealer_hand)
 
 def matikkavisa():
 
@@ -612,8 +610,8 @@ while player == None:
     player = choose_player(location, budget)  #pelinimen valinta
 
 print("Tervetuloa " + player + " pelaamaan lentokenttäappro peliä."
-      "Tässä pelissä pääset matkaamaan lentokenttien välillä tehden minipelejä haalarimerkkejä varten."
-      "Pelin voit voittaa kuluttamalla kaiken opintolainan ja onnistumalla saada tarpeeksi haalarimerkkejä.")
+      " Tässä pelissä pääset matkaamaan lentokenttien välillä tehden minipelejä haalarimerkkejä varten."
+      " Pelin voit voittaa kuluttamalla kaiken opintolainan ja onnistumalla saada tarpeeksi haalarimerkkejä.")
 
 while budget > 0:
     connections= flight_paths(location)
