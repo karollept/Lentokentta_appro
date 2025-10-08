@@ -101,7 +101,7 @@ def play_game():
         "SELECT airport.ident, minigame.name FROM airport "
         "JOIN minigame ON airport.minigame_id = minigame.id "
         "JOIN player ON airport.ident = player.location "
-        "WHERE player.screen_name = %s")
+        "WHERE player.screen_name = player")
 
     cursor.execute(sql)
     tulos = cursor.fetchone()
