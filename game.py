@@ -524,11 +524,11 @@ def blackjack():
             return "LOSE", player_hand, dealer_hand
 
 
-    # MAIN
-    if __name__ == "__main__":
-        init_db()
-        result, player_hand, dealer_hand = blackjack_game()
-        record_result(result, player_hand, dealer_hand)
+# MAIN
+if __name__ == "__main__":
+    init_db()
+    result, player_hand, dealer_hand = play_game(player)
+    record_result(result, player_hand, dealer_hand)
 
 def matikkavisa():
 
@@ -583,6 +583,7 @@ def tarina(location):
     story = kursori.fetchall()
     kursori.close()
     return story
+
 
 def token(location, player):
     c = yhteys.cursor()
