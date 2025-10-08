@@ -1,10 +1,11 @@
 import mysql.connector
+import random
 
 
 yhteys = mysql.connector.connect(
     host="localhost",
-    user="user",
-    password = "password",
+    user="root",
+    password = "f3V3r_dr34m3r",
     autocommit = True,
     db = "lk_approt",
     port = 3306
@@ -93,6 +94,53 @@ def update_player(tuple, player, budget):
 
     return new_budget, new_location
 
+def play_game(location):
+    c = yhteys.cursor()
+
+    sql= ("SELECT minigame_id FROM airport WHERE ident = player.location")
+
+def kivi_sakset_paperi():
+    print("Tervetuloa Kivi–Sakset–Paperi -peliin! Pelataan 3 kierrosta.")
+    vaihtoehdot = ["kivi", "sakset", "paperi"]
+    pelaajan_pisteet = 0
+    tietokoneen_pisteet = 0
+
+    for kierros in range(1, 4):
+        print(f"\nKierros {kierros}:")
+        while True:
+            pelaaja = input("Valitse kivi, sakset tai paperi: ").lower()
+            if pelaaja not in vaihtoehdot:
+                print("Virheellinen valinta. Yritä uudelleen.")
+                continue
+            break
+
+        tietokone = random.choice(vaihtoehdot)
+        print(f"Tietokone valitsi: {tietokone}")
+
+        if pelaaja == tietokone:
+            print("Tasapeli!")
+        elif (pelaaja == "kivi" and tietokone == "sakset") or \
+                (pelaaja == "sakset" and tietokone == "paperi") or \
+                (pelaaja == "paperi" and tietokone == "kivi"):
+            print("Voitit kierroksen!")
+            pelaajan_pisteet += 1
+        else:
+            print("Hävisit kierroksen!")
+            tietokoneen_pisteet += 1
+
+    print("\nPeli päättyi!")
+    print(f"Pisteet - Pelaaja: {pelaajan_pisteet}, Tietokone: {tietokoneen_pisteet}")
+
+    if pelaajan_pisteet > tietokoneen_pisteet:
+        won = True
+        print("Onneksi olkoon! Voitit pelin!")
+    elif pelaajan_pisteet < tietokoneen_pisteet:
+        print("Hävisit pelin!")
+        won = False
+    else:
+        print("Peli päättyi tasapeliin!")
+        won = False
+
 
 location = "EFHK"
 budget = 20000
@@ -101,7 +149,7 @@ player = None
 while player == None:
     player = choose_player(location, budget)  #pelinimen valinta
 
-print("Tervetuloa " + nimi + " pelaamaan lentokenttäappro peliä."
+print("Tervetuloa " + player + " pelaamaan lentokenttäappro peliä."
       "Tässä pelissä pääset matkaamaan lentokenttien välillä tehden minipelejä haalarimerkkejä varten."
       "Pelin voit voittaa kuluttamalla kaiken opintolainan ja onnistumalla saada tarpeeksi haalarimerkkejä.")
 

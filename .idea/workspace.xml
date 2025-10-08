@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="tehdään asia" />
+    <list default="true" id="d2f8654b-edaf-4664-ae9b-4f6ac3f83160" name="Changes" comment="tehdään asia">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +86,7 @@
       <workItem from="1758879557454" duration="1877000" />
       <workItem from="1759056904619" duration="1022000" />
       <workItem from="1759433168453" duration="14349000" />
-      <workItem from="1759838482082" duration="4012000" />
+      <workItem from="1759838482082" duration="7011000" />
     </task>
     <task id="LOCAL−00001" summary="tehdään asia">
       <option name="closed" value="true" />
@@ -274,7 +277,14 @@
       <option name="presentableId" value="LOCAL−00027" />
       <updated>1759842478926</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL−00028" summary="tehdään asia">
+      <option name="closed" value="true" />
+      <created>1759843087617</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1759843087617</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +308,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lentokentta_appro$database.coverage" NAME="database Coverage Results" MODIFIED="1759439563164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Lentokentta_appro$mimi.coverage" NAME="mimi Coverage Results" MODIFIED="1759841982629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Lentokentta_appro$game.coverage" NAME="game Coverage Results" MODIFIED="1759441965372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Lentokentta_appro$game.coverage" NAME="game Coverage Results" MODIFIED="1759915374409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
