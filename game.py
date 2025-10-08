@@ -529,7 +529,7 @@ def blackjack():
 # MAIN
 if __name__ == "__main__":
     init_db()
-    result, player_hand, dealer_hand = play_game()
+    result, player_hand, dealer_hand = play_game(player)
     record_result(result, player_hand, dealer_hand)
 
 def matikkavisa():
