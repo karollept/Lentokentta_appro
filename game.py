@@ -391,7 +391,7 @@ def hirsipuu():
         return win, loop
 
 
-    def hirsipuu_game ():
+    def hirsipuu_game():
 
         rightletter_hirsipuu = 0
         loop_hirsipuu = 0
@@ -527,7 +527,7 @@ def blackjack():
     # MAIN
     if __name__ == "__main__":
         init_db()
-        result, player_hand, dealer_hand = blackjack()
+        result, player_hand, dealer_hand = blackjack_game()
         record_result(result, player_hand, dealer_hand)
 
 def matikkavisa():
@@ -584,19 +584,25 @@ def tarina(location):
     kursori.close()
     return story
 
-
 def token(location, player):
     c = yhteys.cursor()
-    c.execute("SELECT token.id FROM airport WHERE ident = %s", (location,))
+
+    c.execute("SELECT token FROM airport WHERE ident = %s",(location,))
     token_result = c.fetchone()
 
-    c.execute("SELECT player.id FROM player WHERE screen_name = %s", (player,))
+    c.execute("SELECT id FROM player WHERE screen_name = %s", (player,))
     player_result = c.fetchone()
 
-    c.execute("""
-            INSERT INTO accomplishment (token_id, player_id)
-            VALUES (%s, %s)
-        """, (token_result[0], player_result[0]))
+    print("Token result:", token_result)
+    print("Player result:", player_result)
+
+    if token_result and player_result:
+        try:
+            # Lisää accomplishment
+            c.execute("""
+                      INSERT INTO accomplishment (token_id, player_id)
+                      VALUES (%s, %s) 
+                      """, (token_result[0], player_result[0]))
     c.close()
 
 
