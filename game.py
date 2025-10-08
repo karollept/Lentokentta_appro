@@ -121,6 +121,8 @@ def play_game():
             matikkavisa()
         elif minipelin_nimi == "Blackjack":
             blackjack()
+        elif minipelin_nimi == "Numeron arvaus":
+            numeron_arvauspeli()
         else:
             print("Tuntematon minipeli tietokannassa.")
     else:
@@ -192,6 +194,8 @@ def numeron_arvauspeli():
         except ValueError:
             print("Ole hyvä ja syötä kokonaisluku.")
     return won
+
+
 
 location = "EFHK"
 budget = 20000
