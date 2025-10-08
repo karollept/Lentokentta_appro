@@ -5,7 +5,7 @@ import sqlite3
 yhteys = mysql.connector.connect(
     host="localhost",
     user="root",
-    password = "f3V3r_dr34m3r",
+    password = "",
     autocommit = True,
     database = "lk_approt",
     port = 3306
@@ -529,7 +529,7 @@ def blackjack():
 # MAIN
 if __name__ == "__main__":
     init_db()
-    result, player_hand, dealer_hand = play_game()
+    result, player_hand, dealer_hand = blackjack()
     record_result(result, player_hand, dealer_hand)
 
 def matikkavisa():
