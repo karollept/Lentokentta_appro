@@ -1,5 +1,5 @@
 import mysql.connector
-
+import random
 
 yhteys = mysql.connector.connect(
     host="localhost",
@@ -161,15 +161,15 @@ def kivi_sakset_paperi():
     print(f"Pisteet - Pelaaja: {pelaajan_pisteet}, Tietokone: {tietokoneen_pisteet}")
 
     if pelaajan_pisteet > tietokoneen_pisteet:
-        won = True
+        voitto = True
         print("Onneksi olkoon! Voitit pelin!")
     elif pelaajan_pisteet < tietokoneen_pisteet:
         print("Hävisit pelin!")
-        won = False
+        voitto = False
     else:
         print("Peli päättyi tasapeliin!")
-        won = False
-    return won
+        voitto = False
+    return voitto
 
 def numeron_arvauspeli():
     print("Tervetuloa numeron arvauspeliin!")
@@ -189,12 +189,248 @@ def numeron_arvauspeli():
                 print("Liian suuri! Yritä uudelleen.")
             else:
                 print(f"Onneksi olkoon! Arvasit oikein numeron {oikea_numero} {arvaukset} yrityksellä.")
-                won = True
+                voitto = True
                 break
         except ValueError:
             print("Ole hyvä ja syötä kokonaisluku.")
-    return won
+    return voitto
 
+def vastaus_wordle_def():
+    wordle_id = [random.randint(1,1426)]
+
+    cursor.execute("SELECT sana from wordle WHERE id = %s", wordle_id)
+    rows = cursor.fetchall()
+
+    for (i,) in rows:
+        vastaus = list(i)  #muutetaan vastaus listaksi jossa jokainen kirjain on yksi arvo
+
+    return vastaus
+
+
+def checker_wordle(vastaus, arvaus_list):
+    checker = []
+
+    for i in range(5):
+        if arvaus_list[i] == vastaus[i]:
+            checker.append("green")
+        elif arvaus_list[i] in vastaus:
+            checker.append("yellow")             # laitetaan wordle_checker listaan jokaisen kirjaimen kohdalle oikea arvo (oikea paikka, oikea kirjain, väärin)
+        else:
+            checker.append("reset")
+    return checker
+
+
+def wordle_arvaus_def(arvaus):
+    arvaus_list = []
+
+    for kirjain in arvaus:
+        arvaus_list.append(kirjain)  # muunnetaan arvaus listaksi, jossa jokainen kirjain on listan arvo
+
+    return arvaus_list
+
+def wordle_5letters():
+    loop_wordle_5letters = True
+    while loop_wordle_5letters == True:
+        arvaus = input("")
+        if len(arvaus) == 5 and type(
+                arvaus) == str:  # Tarkistetaan, että käyttäjän syöttämä merkkijono==5merkkiä pitkä, sekä string
+            loop_wordle_5letters = False  # Ei voida isalpha() koska a-z
+
+    return str.lower(arvaus)   #muuntaa isot kirjaimet pieniksi
+
+def wordle_tulostus(color_code, checker, arvaus, loop, vastaus):
+    win=False
+    print(color_code[checker[0]] + f"[{arvaus[0]}]",
+          color_code[checker[1]] + f"[{arvaus[1]}]",
+          color_code[checker[2]] + f"[{arvaus[2]}]",  # tulostetaan rivi oikeine väreineen
+          color_code[checker[3]] + f"[{arvaus[3]}]",
+          color_code[checker[4]] + f"[{arvaus[4]}]" + reset)
+    if checker[0] == "green" and checker[1] == "green" and checker[2] == "green" and \
+            checker[3] == "green" and checker[4] == "green":
+        loop = loop + 6
+        print("Onnittelut voitosta!")
+        win=True
+
+    else:
+        loop = loop + 1
+
+    if loop >= 6 and win == False:
+        print(f"Hävisit pelin, oikea sana oli {vastaus}")
+
+    return loop, win
+
+wordle_color_code = {
+    "green": "\033[32m",
+    "yellow": "\033[33m",   #tehdään dictionary josta saadaan oikea värin tunnus
+    "reset": "\033[0m"
+}
+
+def ohjeet_wordle(green, yellow, reset):
+    print("Terve tuloa pelaamaan wordle peliä!\n"
+          "Tehtäväsi on arvata 5-kirjaiminen sana\n"
+          "Arvauksen jälkeen näet mitkä kirjaimet olivat oikeita ja mitkä oikealla paikalla\n"
+          "\n"
+          "Sinulla on yhteensä 6 yritystä arvata sana\n"
+          "\n"
+          "Voit syöttää vain sanoja perus muodossa, ei esim monikkoja\n"
+          "\n"
+          "\n"
+          "Esimerkki jossa vastaus on sana 'koira' ja olet arvannut 'ruoka' ja 'kissa':\n",
+          yellow + "[r]", reset + "[u]", yellow + "[o]", yellow + "[k]", green + "[a]\n",
+          green + "[k]", yellow + "[i]", reset + "[s]", "[s]", green + "[a]\n",
+          reset + "\n"
+                  "Kun olet valmis jatkamaan pelin syötä mikätahansa merkki")
+    input("")
+    print("Syötä ensimmäinen sana:")
+
+def wordle(loop, green, yellow, reset):
+    vastaus_wordle = vastaus_wordle_def() # määritellään wordle vastaus
+    ohjeet_wordle(green, yellow, reset)
+    while loop <6:
+                                    # SanaApu.com
+        arvaus=wordle_5letters()
+        wordle_arvaus = wordle_arvaus_def(arvaus)  # määritellään pelaajan arvaus
+        wordle_checker = checker_wordle(vastaus_wordle, wordle_arvaus)  # määritellään pelaajan syöttämän sanan tarkistus
+        loop, voitto_wordle=wordle_tulostus(wordle_color_code, wordle_checker, wordle_arvaus, loop, vastaus_wordle) #Wordle tuloksen tulostus sekä loop tracking
+
+    return voitto_wordle
+
+
+
+
+green = "\033[32m"
+yellow = "\033[33m"
+reset = "\033[0m"
+loop_wordle = 0
+
+if __name__ == '__main__':
+    wordle(loop_wordle, green, yellow, reset)
+
+def arvaus_hirsipuu_def(arvattujenlista):
+    sana_arvaus = False
+    arvaus = input(f"Arvaa 1 kirjain tai koko sana:")
+    arvaus = arvaus.upper()                             #pelaajan arvaus, hirsipuu
+
+    if len(arvaus) >1:
+        sana_arvaus = True
+    else:
+        arvattujenlista.append(arvaus)
+
+    return arvaus, sana_arvaus, arvattujenlista
+
+
+
+
+def difficulty_hirsipuu_def():
+    loop = True
+
+    while loop == True:
+        difficulty = input("Valitse vaikeus taso, hard/easy")
+
+        if difficulty == "easy":            #Vaikeuden valinta, hirsipuu
+            loop=False
+            difficulty = 1
+        elif difficulty == "hard":
+            loop=False
+            difficulty = 0
+
+    return difficulty
+
+
+# hakee vastauksen sekä luo score pöydän
+def vastaus_hirsipuu_def(difficulty):
+    id = random.randint(1,103)
+    score_table = []
+
+    cursor.execute("SELECT sana_hard, sana_easy FROM hirsipuu WHERE id = %s", (id,))
+    haettu_sana = cursor.fetchall()
+
+    for i in range(len(haettu_sana[0][difficulty])):
+        score_table.append("_")
+
+    return haettu_sana[0][difficulty], score_table
+
+
+def lettercheck_hirsipuu(vastaus, arvaus):
+    kirjaimet = []
+    tulos = []
+    for i in vastaus:
+        kirjaimet.append(i)
+
+    for i in range(len(vastaus)):
+        if arvaus == kirjaimet[i]:
+            tulos.append(kirjaimet[i])
+        else:
+            tulos.append("_")
+
+    return tulos
+
+
+def finalscore_hirsipuu_def(roundscore, scoreboard):
+    for i in range(len(scoreboard)):
+        if scoreboard[i] == "_":
+            scoreboard.append(roundscore[i])
+        else:                                      #tekee uuden scoreboard
+            scoreboard.append(scoreboard[i])
+
+    for i in range(len(roundscore)):
+        scoreboard.pop(0) #poistaa vanhat
+
+    return scoreboard
+
+def win_check_hirsipuu_def(arvaus, vastaus, loop, scoreboard):
+    vastaus_list = list(vastaus)
+
+    if arvaus in vastaus_list:
+        loop = loop -1          #jos oikea kirjain niin kierros luku ei mene alaspäin
+
+    if arvaus==vastaus or vastaus_list==scoreboard:
+        win=True                                       #tarkistetaan onko pelaaja voittanut
+    else:
+        win=False
+
+    return win, loop
+
+
+def hirsipuu ():
+
+    rightletter_hirsipuu = 0
+    loop_hirsipuu = 0
+    arvatut_kirjaimet_hirsipuu = []
+    win_hirsipuu = False
+
+
+
+    difficulty_hirsipuu = difficulty_hirsipuu_def()
+    vastaus_hirsipuu, scoreboard_hirsipuu = vastaus_hirsipuu_def(difficulty_hirsipuu)
+
+    while loop_hirsipuu < 10 and win_hirsipuu == False:
+
+        arvaus_hirsipuu, is_answer, arvatut_kirjaimet_hirsipuu = arvaus_hirsipuu_def(
+            arvatut_kirjaimet_hirsipuu)  # arvaus_hirsipuu = A-Ö tai sana, is_answer = boolean
+
+        roundscore_hirsipuu = lettercheck_hirsipuu(vastaus_hirsipuu, arvaus_hirsipuu)
+        scoreboard_hirsipuu = finalscore_hirsipuu_def(roundscore_hirsipuu, scoreboard_hirsipuu)
+
+        win_hirsipuu, loop_hirsipuu = win_check_hirsipuu_def(arvaus_hirsipuu, vastaus_hirsipuu, loop_hirsipuu,
+                                                             scoreboard_hirsipuu)
+        loop_hirsipuu = loop_hirsipuu + 1
+
+        if win_hirsipuu == False:
+            print(f"{scoreboard_hirsipuu}<--Arvattava sana\n"
+                  f"\n"
+                  f"{arvatut_kirjaimet_hirsipuu}<--Arvatut kirjaimet\n"
+                  f"\n"
+                  f"\n"
+                  f"Arvauksi jäljellä :{10 - loop_hirsipuu}")
+
+    if win_hirsipuu == True:
+        voitto = True
+        print("Voitit pelin!")
+    else:
+        print(f"Hävisit pelin:(\n"
+              f"Oikea vastaus oli {vastaus_hirsipuu}")
+        voitto = False
 
 
 location = "EFHK"
@@ -204,7 +440,7 @@ player = None
 while player == None:
     player = choose_player(location, budget)  #pelinimen valinta
 
-print("Tervetuloa " + nimi + " pelaamaan lentokenttäappro peliä."
+print("Tervetuloa " + player + " pelaamaan lentokenttäappro peliä."
       "Tässä pelissä pääset matkaamaan lentokenttien välillä tehden minipelejä haalarimerkkejä varten."
       "Pelin voit voittaa kuluttamalla kaiken opintolainan ja onnistumalla saada tarpeeksi haalarimerkkejä.")
 
