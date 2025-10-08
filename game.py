@@ -101,7 +101,7 @@ def play_game():
         "SELECT airport.ident, minigame.name FROM airport "
         "JOIN minigame ON airport.minigame_id = minigame.id "
         "JOIN player ON airport.ident = player.location "
-        "WHERE player.id = 6")
+        "WHERE player.name = player")
 
     cursor.execute(sql)
     tulos = cursor.fetchone()
@@ -624,9 +624,15 @@ while budget > 0:
 
     tarina(location)
 
-    play_game()
+    minipeli = play_game()
+    if minipeli == "Kivi_sakset_paperi":
+        win = kivi_sakset_paperi()
+    elif minipeli == "Matikkakisa":
+        win = matikkakisa()
+    else:
+        win = False
     
-    if win == True:
+    if win:
         token(location)
 
 print("Olet kuluttanut opintolainan loppuun")
