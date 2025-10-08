@@ -7,7 +7,7 @@ yhteys = mysql.connector.connect(
     user="root",
     password = "f3V3r_dr34m3r",
     autocommit = True,
-    db = "lk_approt",
+    database = "lk_approt",
     port = 3306
 )
 cursor = yhteys.cursor()
@@ -94,16 +94,16 @@ def update_player(tuple, player, budget):
 
     return new_budget, new_location
 
-def play_game():
+def play_game(player):
     cursor = yhteys.cursor()
 
     sql = (
         "SELECT airport.ident, minigame.name FROM airport "
         "JOIN minigame ON airport.minigame_id = minigame.id "
         "JOIN player ON airport.ident = player.location "
-        "WHERE player.screen_name = player")
+        "WHERE player.screen_name = %s")
 
-    cursor.execute(sql)
+    cursor.execute(sql, (player,))
     tulos = cursor.fetchone()
 
     if tulos:
@@ -587,18 +587,18 @@ def tarina(location):
     return story
 
 
-def token(location):
+def token(location, player):
     c = yhteys.cursor()
     c.execute("SELECT token.id FROM airport WHERE ident = %s", (location,))
-    token_result = cursor.fetchone()
+    token_result = c.fetchone()
 
     c.execute("SELECT player.id FROM player WHERE screen_name = %s", (player,))
-    player_result = cursor.fetchone()
+    player_result = c.fetchone()
 
     c.execute("""
             INSERT INTO accomplishment (token_id, player_id)
             VALUES (%s, %s)
-        """, (token_result, player_result))
+        """, (token_result[0], player_result[0]))
     c.close()
 
 
@@ -624,7 +624,7 @@ while budget > 0:
 
     tarina(location)
 
-    minipeli = play_game()
+    minipeli = play_game(player)
     if minipeli == "Kivi_sakset_paperi":
         win = kivi_sakset_paperi()
     elif minipeli == "Matikkavisa":
@@ -633,7 +633,7 @@ while budget > 0:
         win = False
     
     if win:
-        token(location)
+        token(location, player)
 
 print("Olet kuluttanut opintolainan loppuun")
 
@@ -645,7 +645,7 @@ def highscore():
     FROM accomplishment
     JOIN player ON accomplishment.player_id = player.id
     GROUP BY player.id
-    ORDER BY 'Merkkien määrä' DESC;
+    ORDER BY COUNT(token_id) DESC;
     """
     cursor.execute(sql)
     tulokset = cursor.fetchall()
@@ -656,5 +656,4 @@ def highscore():
     for pelaaja, maara in tulokset:
         print(f"{pelaaja:15} | {maara} merkkiä")
 
-    cursor.close()
 highscore()
