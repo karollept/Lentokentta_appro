@@ -607,6 +607,7 @@ def token(location, player):
     c.close()
 
 
+
 #---------------------------------------
 
 location = "EFHK"
