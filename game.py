@@ -576,6 +576,31 @@ for kysymys, vastaus in valitut_kysymykset:
 else:
     print("Onneksi olkoon! Vastasit kaikki oikein ja voitit pelin.")
 
+
+def tarina(location):
+    sql = 'SELECT story FROM stories WHERE ident = %s'
+    kursori = yhteys.cursor()
+    kursori.execute(sql, (location,))
+    story = kursori.fetchall()
+    kursori.close()
+    return story
+
+
+def token(location):
+    c = yhteys.cursor()
+    c.execute("SELECT token.id FROM airport WHERE ident = %s", (location,))
+    token_result = cursor.fetchone()
+
+    c.execute("SELECT player.id FROM player WHERE screen_name = %s", (player,))
+    player_result = cursor.fetchone()
+
+    c.execute("""
+            INSERT INTO accomplished (token_id, player_id)
+            VALUES (%s, %s)
+        """, (token_result, player_result))
+    c.close()
+
+
 #---------------------------------------
 
 location = "EFHK"
