@@ -83,7 +83,7 @@ def update_player(tup, player, budget):
     new_budget = budget - tup[1]
     airport = tup[0]
 
-    # 1) Hae ICAO-ident (4-merkkinen)
+
     c.execute("SELECT ident FROM airport WHERE name = %s AND CHAR_LENGTH(ident) = 4", (airport,))
     row = c.fetchone()  # otetaan ensimmäinen rivi
 
