@@ -306,7 +306,7 @@ def wordle():
 def hirsipuu():
     def arvaus_hirsipuu_def(arvattujenlista):
         sana_arvaus = False
-        arvaus = input(f"Arvaa 1 kirjain tai koko sana:")
+        arvaus = input(f"Arvaa 1 kirjain tai koko sana: ")
         arvaus = arvaus.upper()  # pelaajan arvaus, hirsipuu
 
         if len(arvaus) > 1:
@@ -320,7 +320,7 @@ def hirsipuu():
         loop = True
 
         while loop == True:
-            difficulty = input("Valitse vaikeus taso, hard/easy")
+            difficulty = input("Valitse vaikeus taso, hard/easy: ")
 
             if difficulty == "easy":  # Vaikeuden valinta, hirsipuu
                 loop = False
@@ -411,7 +411,7 @@ def hirsipuu():
                       f"{arvatut_kirjaimet_hirsipuu}<--Arvatut kirjaimet\n"
                       f"\n"
                       f"\n"
-                      f"Arvauksi jäljellä :{10 - loop_hirsipuu}")
+                      f"Arvauksia jäljellä :{10 - loop_hirsipuu}")
 
         if win_hirsipuu == True:
             return True
