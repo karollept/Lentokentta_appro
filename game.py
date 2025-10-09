@@ -568,45 +568,44 @@ def tarina(location):
 
 
 def token(location, player):
-    print(f"DEBUG: token() called for {player=} {location=}")
-    c = yhteys.cursor()
+    cursor = yhteys.cursor()
     try:
         # Haetaan pelaajan ja tokenin ID:t
-        c.execute("SELECT id FROM player WHERE screen_name = %s", (player,))
-        player_row = c.fetchone()
+        cursor.execute("SELECT id FROM player WHERE screen_name = %s", (player,))
+        player_row = cursor.fetchone()
 
-        c.execute("SELECT token_id FROM airport WHERE ident = %s", (location,))
-        token_row = c.fetchone()
+        cursor.execute("SELECT token_id FROM airport WHERE ident = %s", (location,))
+        token_row = cursor.fetchone()
 
         if not player_row or not token_row:
-            print("❌ Tokenia tai pelaajaa ei löytynyt.")
+            print("Tokenia tai pelaajaa ei löytynyt.")
             return
 
         player_id = player_row[0]
         token_id = token_row[0]
 
-        c.execute("""
+        cursor.execute("""
             SELECT 1 FROM accomplishment 
             WHERE player_id = %s AND token_id = %s
         """, (player_id, token_id))
 
-        if c.fetchone():
-            print(f"ℹ️ Pelaajalla {player} on jo tämä token ({token_id}) kentältä {location}.")
+        if cursor.fetchone():
+            print(f"Sinulla on jo tämä token ({token_id}) kentältä {location}.")
         else:
-            c.execute("""
+            cursor.execute("""
                 INSERT INTO accomplishment (player_id, token_id)
                 VALUES (%s, %s)
             """, (player_id, token_id))
-            print(f"✅ Lisätty uusi token pelaajalle {player} sijainnissa {location}!")
+            print(f"Lisätty uusi token pelaajalle {player} sijainnissa {location}!")
 
         yhteys.commit()
 
     except Exception as e:
         yhteys.rollback()
-        print("❌ Virhe tokenin käsittelyssä:", e)
+        print("Virhe tokenin käsittelyssä:", e)
 
     finally:
-        c.close()
+        cursor.close()
 
 # ---------------------------------------
 
