@@ -5,7 +5,7 @@ import sqlite3
 yhteys = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="",
+    password="140305",
     autocommit=True,
     database="lk_approt",
     port=3306
@@ -77,22 +77,29 @@ def flight_choise(connections, budget):
         print(f"Virhe! syötä kenttään vain kokonais luku väliltä 1-{len(connections)}.")
 
 
-def update_player(tuple, player, budget):
+def update_player(tup, player, budget):
     c = yhteys.cursor()
 
-    new_budget = budget - tuple[1]
-    airport = tuple[0]
-    sql = ("UPDATE player SET location = ("
-           "SELECT ident FROM airport WHERE airport.name = %s), "
-           "budget = %s "
-           "WHERE screen_name = %s")
+    new_budget = budget - tup[1]
+    airport = tup[0]
 
-    c.execute(sql, (airport, new_budget, player))
+    # 1) Hae ICAO-ident (4-merkkinen)
+    c.execute("SELECT ident FROM airport WHERE name = %s AND CHAR_LENGTH(ident) = 4", (airport,))
+    row = c.fetchone()  # otetaan ensimmäinen rivi
 
-    c.execute("SELECT ident FROM airport WHERE name = %s", (airport,))
-    new_location = c.fetchone()[0]
+    if row is None:
+        print("Virhe: Ei löytynyt 4-merkkistä ICAO-koodia kentälle:", airport)
+        new_location = None
+    else:
+        new_location = row[0]
+
+        c.execute(
+            "UPDATE player SET location=%s, budget=%s WHERE screen_name=%s",
+            (new_location, new_budget, player)
+        )
+
+
     c.close()
-
     return new_budget, new_location
 
 
@@ -238,7 +245,7 @@ def wordle():
                 checker[3] == "green" and checker[4] == "green":
             loop = loop + 6
             print("Onnittelut voitosta!")
-            return True
+            return loop, True
 
         else:
             loop = loop + 1
@@ -291,8 +298,9 @@ def wordle():
     reset = "\033[0m"
     loop_wordle = 0
 
-    if __name__ == '__main__':
-        wordle(loop_wordle, green, yellow, reset)
+    win_wordle = wordle_peli(loop_wordle, green, yellow, reset)
+
+    return win_wordle
 
 
 def hirsipuu():
@@ -412,6 +420,10 @@ def hirsipuu():
             print(f"Hävisit pelin:(\n"
                   f"Oikea vastaus oli {vastaus_hirsipuu}")
             return False
+
+    win = hirsipuu_game()
+
+    return win
 
 
 def blackjack():
