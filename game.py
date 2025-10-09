@@ -575,6 +575,7 @@ def tarina(location):
     kursori = yhteys.cursor()
     kursori.execute(sql, (location,))
     story = kursori.fetchall()
+    print(story)
     kursori.close()
     return story
 
