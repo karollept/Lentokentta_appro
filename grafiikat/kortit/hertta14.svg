@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Playing_Cards" data-name="Playing Cards" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 152.06 215.64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #db0f1a;
+      }
+    </style>
+  </defs>
+  <g id="Cards">
+    <g id="Hearts">
+      <g>
+        <g>
+          <path class="cls-1" d="M6.6.02h138.97c.47,0,.95.06,1.41.17l.11.03c.98.25,1.88.74,2.61,1.44l.04.04c.48.46.87,1,1.17,1.59l.41.83c.29.58.48,1.2.56,1.84l.26,1.97c.03.25.05.5.05.75v198.38c0,.26-.02.52-.05.78l-.25,1.86c-.08.61-.26,1.2-.53,1.75l-.41.85c-.32.65-.75,1.24-1.28,1.73l-.05.04c-.67.62-1.48,1.07-2.36,1.32l-.2.05c-.51.14-1.04.22-1.57.22H6.68c-.53,0-1.06-.07-1.57-.22l-.14-.04c-.92-.26-1.76-.74-2.45-1.4h0c-.49-.48-.9-1.04-1.2-1.65l-.41-.84c-.29-.59-.47-1.23-.55-1.88l-.21-1.85c-.02-.22-.04-.43-.04-.65V8.62c0-.21.01-.42.03-.63l.21-1.96c.07-.68.27-1.35.58-1.97l.41-.82c.28-.56.64-1.06,1.08-1.5h0c.74-.74,1.67-1.27,2.69-1.53h.06c.46-.13.93-.19,1.4-.19Z"/>
+          <path class="cls-2" d="M21.24,24.14h-8.47l-1.48,3.45c-.37.85-.55,1.48-.55,1.9,0,.33.16.63.47.88.32.25,1,.42,2.06.49v.6h-6.89v-.6c.91-.16,1.51-.37,1.77-.63.55-.52,1.16-1.56,1.82-3.14l7.69-18h.56l7.61,18.19c.61,1.46,1.17,2.41,1.67,2.85.5.44,1.2.68,2.09.73v.6h-8.63v-.6c.87-.04,1.46-.19,1.77-.44.31-.25.46-.55.46-.9,0-.47-.21-1.22-.64-2.24l-1.32-3.14ZM20.79,22.95l-3.71-8.84-3.81,8.84h7.51Z"/>
+          <path class="cls-2" d="M130.56,190.37h8.47l1.48-3.45c.37-.85.55-1.48.55-1.9,0-.33-.16-.63-.48-.88-.32-.25-1-.42-2.06-.49v-.6h6.89v.6c-.91.16-1.51.37-1.77.63-.55.52-1.16,1.56-1.82,3.14l-7.69,18h-.56l-7.61-18.19c-.61-1.46-1.17-2.41-1.67-2.85-.5-.44-1.2-.68-2.09-.73v-.6h8.63v.6c-.87.04-1.46.19-1.77.44-.31.25-.46.55-.46.9,0,.47.22,1.22.65,2.24l1.32,3.14ZM131.01,191.56l3.71,8.84,3.8-8.84h-7.51Z"/>
+          <g>
+            <image width="13" height="14" transform="translate(10.06 37.27)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAOCAYAAAD0f5bSAAAACXBIWXMAAAsSAAALEgHS3X78AAAAUUlEQVQokWO8zS/1n4EIoPrxGSOMzUSMBgYGBgZkw4nWhAwGoSaSAwJZAwMDAwMTugAxAK4BV3xhMxSv83C5gomQAqLAbX6p/4SSFlnxRBYAAOehGBG9/FG4AAAAAElFTkSuQmCC"/>
+            <image width="13" height="14" transform="translate(128.06 163.27)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAOCAYAAAD0f5bSAAAACXBIWXMAAAsSAAALEgHS3X78AAAAS0lEQVQokWNkQAK3+aX+w9iqH58xMuAATLgkkA1AB4yEFGGzkYmQqSQ5D58LGIm1BdmZBG3CZiPRmpDBINREVkAgAxZcphGbDokGAO6aHCC/IzJbAAAAAElFTkSuQmCC"/>
+          </g>
+        </g>
+        <image width="66" height="77" transform="translate(43.06 68.27)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABNCAYAAAASArI9AAAACXBIWXMAAAsSAAALEgHS3X78AAACuUlEQVR4nO2bu3LDIBBFF43quI57//8HuY/r+AeURvYgxHPfnnC7ZAQsh7trJKEADd0v1611TUm335+Abas9/tIMYkPHQZoEAMD96xvXftsAtm2ofRHEG0KgLSoWBhoCsp/sLA9OIIKI1WvVQ/CU8SM3356PakcnR1DTgarTCmJjiduF0HTmgdIpCEY3vFRzRdHG2DgyEEvOqBZLCWeUVuZ+uW4S4E/jFGCvxQsUgvKkBYCvQvcqdUXzlwXrzMJi5uZbT41/pCXrBo1cJW62yOMn8zZ3hDiQzkU9gghBtUiquaJjTsvhQsONVFPU2F6LHC12nB7rG4KXn8sQdBYkma95jfCiCWKXPxBGdcofCCP5A2FUtP2BMNIEscsnCIP08AnCQBPErgli13r4q2cz4+WeJCdC/OvwTi55TG4uSvyR1ux/MZ1qQmHahseP9mkgpFSaqOB9yNJ6FeZGzI5L5/0ZvxoKabcAtF+QmiqGIAiEr0YwHCE4KO2LsT7kFt5naljea7hODwA2OF1vw13DYEiN2vxOqUGC4fi9yPCJGbIcw6hp/PRKs0eB7CLC7XF50RHoFHHmiN55VFMDBcPDHSkAQAhD8TdrxO35CLkXqG6UxoaMEVcsa4Npp0ZhvNHjz90Xd51lkHg+kU60o1/MGfBuRwx1LpE+nZbHHoQfbqR+9mnAZZSvAVANrQ+C5UT9JALd2BMMju9CSB14gMEBAYAIAsAWBhcEAAYQADYwOCEAMN19cgdlIZ+P6hqSAM/aoUaKSLmPvVNJGJIpKNKxBAzpOiTWOScMjWL8kcVSQqKkOVyh9dMsPoj1t+W9mqmxS4U4xhXau1UVR3zCFtxlaliAUx2wJ0Ws3OPSERZSBeG5VrhyhCUoVyAsZbICuaJpnTbTEbvMViF2hbUbAKYj3pogPMjDm7KpRH/1GRLQXgg6EwAAAABJRU5ErkJggg=="/>
+      </g>
+    </g>
+  </g>
+</svg>
