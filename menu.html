@@ -1,0 +1,96 @@
+<!-- menu.html -->
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="home.html">Koti</a></li>
+      <li><a href="instructions.html">Ohjeet</a></li>
+      <li><a href="game-map.html">Kartta</a></li>
+      <li><a href="minipelit.html">Minipelit</a></li>
+      <li><a href="haalarimerkit.html">Haalarimerkit</a></li>
+
+    </ul>
+  </div>
+  
+  <style>
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .menu-btn span {
+      display: block;
+      height: 4px;
+      width: 100%;
+      background-color: #8b67d6;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(7px,7px); }
+    .menu-btn.active span:nth-child(2) { opacity: 0; }
+    .menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-7px); }
+  
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: #333;
+      color: white;
+      transition: right 0.3s ease;
+      padding-top: 80px;
+      z-index: 1000;
+    }
+
+    .nav-menu ul { 
+      list-style: none; 
+      padding: 0 20px; 
+    }
+    .nav-menu ul li { 
+      margin: 20px 0; 
+    }
+
+    .nav-menu ul li a { 
+      color: white; 
+      text-decoration: none; 
+      font-size: 20px; 
+    }
+
+    .nav-menu.active { 
+      right: 0; 
+    }
+  </style>
+  
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
+
+    menuBtn.addEventListener("click", (e) => {
+      menuBtn.classList.toggle("active");
+      navMenu.classList.toggle("active");
+      e.stopPropagation();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (
+        navMenu.classList.contains("active") &&
+        !navMenu.contains(e.target) &&
+        !menuBtn.contains(e.target)
+      ) {
+        navMenu.classList.remove("active");
+        menuBtn.classList.remove("active");
+      }
+    });  
+</script>
