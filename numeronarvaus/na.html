@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeron arvaus</title>
+    <script src="na.js" defer></script>
+    <script src="../static/info.js" defer></script>
+    <script src="../static/sendBoolean.js"></script>
+    <link rel="stylesheet" href="na.css">
+</head>
+<body>
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="home.html">Koti</a></li>
+      <li><a href="instructions.html">Ohjeet</a></li>
+      <li><a href="game-map.html">Kartta</a></li>
+      <li><a href="minipelit.html">Minipelit</a></li>
+      <li><a href="haalarimerkit.html">Haalarimerkit</a></li>
+
+    </ul>
+  </div>
+    <div id="boxi">
+        <h1>Tervetuloa numeron arvauspeliin!</h1>
+        <p>Arvaa numeroa 1 ja 9 väliltä... <br> Sinulla on 3 yritystä.</p>
+
+        <div class="nappi-container" id="nappiContainer"></div>
+        <button onclick="arvaa()">Arvaa</button>
+
+        <div id="viesti">🔢Arvauksia jäljellä: 3</div>
+    </div>
+<div id="overlay">
+    <div id="overlayBox">
+        <div id="overlayMessage"></div>
+        <a href="../pelisivu/ps.html">Jatka</a>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Playing_Cards" data-name="Playing Cards" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 152.06 215.64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #db0f1a;
+      }
+    </style>
+    <image id="image" width="31" height="37" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAlCAYAAAC6TzLyAAAACXBIWXMAAAsSAAALEgHS3X78AAAAwklEQVRYhe1WOxaDMAxTuAA7e+9/IPbunAAW4PXRfGzZKbxXawxWZBknccKOeZxWNPBa3im3znKTlFzaxMJNGvJ1EwsXAAYtmRXNgXJuxeGecu6FEA/xEA9xd3ze7fQDYRUGbi77mUlv97lhYqh97I2flL1k7GvRu/y1itIDoVW4KO6RgKSHqgFsAtLmbQZpE9Ccmma39zyCrkdNm6g4uFV+pkIqQikB9tc842GR4ure0pC3Oqcwj9PqcQX/1wwXAIANUfRUMVUSFLkAAAAASUVORK5CYII="/>
+    <image id="image-2" width="31" height="36" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAkCAYAAABxE+FXAAAACXBIWXMAAAsSAAALEgHS3X78AAAAwElEQVRYhe1WORKAIAwMfsCe3v8/yN7eF2ijjoMcySYoM7IlZtlsDBBHB+bRb1TAtC4uto5yHZec2kTDdRJyuImGS0Q0SMmoaAyQcy1O95BzK3TxLt7Fu7g57nc7/EBohYk+LvuVSW33sWFiyH2sjVfKnjL2WLQuf66i8ECoFU6KWyTA6aFsAJoAt3mLQdIEJKem2O01j6DpUZMmyg4ulR+pkIiQSgD9NW08LFyE7jUN+alzCPPoN4sr+F8zXDPYATOgVDGFN32dAAAAAElFTkSuQmCC"/>
+  </defs>
+  <g id="Cards">
+    <g id="Hearts">
+      <g>
+        <path class="cls-1" d="M6.52.02h138.97c.47,0,.95.06,1.41.17l.11.03c.98.25,1.88.74,2.61,1.44l.04.04c.48.46.87.99,1.17,1.59l.41.83c.29.58.48,1.2.56,1.84l.26,1.97c.03.25.05.5.05.75v198.39c0,.26-.02.52-.05.78l-.25,1.86c-.08.61-.26,1.2-.53,1.75l-.41.85c-.32.65-.75,1.23-1.28,1.72l-.05.04c-.67.62-1.48,1.07-2.36,1.32l-.2.06c-.51.14-1.04.22-1.57.22H6.6c-.53,0-1.06-.07-1.57-.22l-.14-.04c-.92-.26-1.75-.74-2.44-1.4h0c-.49-.48-.9-1.04-1.2-1.65l-.41-.84c-.29-.59-.47-1.23-.55-1.88l-.21-1.86c-.02-.22-.04-.44-.04-.65V8.62c0-.21.01-.42.03-.63l.21-1.97c.07-.68.27-1.35.58-1.96l.41-.82c.28-.56.65-1.07,1.09-1.51h0c.74-.74,1.67-1.27,2.69-1.52h.06c.46-.13.93-.19,1.41-.19Z"/>
+        <g>
+          <path class="cls-2" d="M23.4,10.18l-1.26,2.74h-6.58l-1.44,2.93c2.85.42,5.11,1.48,6.77,3.18,1.43,1.46,2.15,3.18,2.15,5.16,0,1.15-.23,2.21-.7,3.19-.47.98-1.06,1.81-1.77,2.5-.71.69-1.5,1.24-2.37,1.66-1.24.59-2.5.89-3.81.89s-2.27-.22-2.86-.67c-.6-.45-.9-.94-.9-1.48,0-.3.12-.57.37-.8.25-.23.56-.35.94-.35.28,0,.52.04.73.13.21.09.57.31,1.07.66.81.56,1.62.84,2.45.84,1.26,0,2.36-.48,3.31-1.43.95-.95,1.43-2.11,1.43-3.47s-.42-2.56-1.27-3.7c-.85-1.15-2.02-2.03-3.51-2.65-1.17-.48-2.77-.76-4.79-.84l4.19-8.5h7.84Z"/>
+          <path class="cls-2" d="M128.75,205.5l1.26-2.74h6.58l1.44-2.94c-2.85-.42-5.11-1.48-6.77-3.18-1.43-1.46-2.15-3.18-2.15-5.16,0-1.15.23-2.21.7-3.19.47-.98,1.06-1.81,1.77-2.5.71-.69,1.5-1.24,2.37-1.66,1.24-.59,2.5-.89,3.81-.89s2.27.22,2.86.67c.6.45.9.94.9,1.48,0,.3-.12.57-.37.8-.25.23-.56.35-.94.35-.28,0-.52-.04-.73-.13-.21-.09-.57-.31-1.07-.66-.81-.56-1.62-.84-2.45-.84-1.26,0-2.36.47-3.31,1.43-.95.95-1.43,2.11-1.43,3.47s.42,2.56,1.27,3.7c.85,1.14,2.02,2.03,3.51,2.65,1.17.48,2.77.76,4.79.84l-4.19,8.5h-7.84Z"/>
+        </g>
+        <g>
+          <image width="13" height="15" transform="translate(9.89 37.27)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAYAAAA/I0V3AAAACXBIWXMAAAsSAAALEgHS3X78AAAAUUlEQVQokWO8zS/1n4EIoPrxGSOMzUSMBgYGBgZkw4nWhAwGoSaSAwJZAwMDAwMTugAxAK4BV3xhMxSv83C5gomQAqLAbX6p/4SSFlnxRD8AAONxGBHlMo+QAAAAAElFTkSuQmCC"/>
+          <image width="13" height="15" transform="translate(128.89 163.27)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAYAAAA/I0V3AAAACXBIWXMAAAsSAAALEgHS3X78AAAAS0lEQVQokWNkQAK3+aX+w9iqH58xMuAATLgkkA1AB4yEFGGzkYmQqSQ5D58LGIm1BdmZBG3CZiPRmpDBINREVkAgAxZcphGbDmkLAMGUHCDy0hXwAAAAAElFTkSuQmCC"/>
+        </g>
+        <g>
+          <g>
+            <g>
+              <use transform="translate(87.89 28.27)" xlink:href="#image"/>
+              <use transform="translate(87.89 151.27)" xlink:href="#image-2"/>
+            </g>
+            <g>
+              <use transform="translate(32.89 28.27)" xlink:href="#image"/>
+              <use transform="translate(32.89 151.27)" xlink:href="#image-2"/>
+            </g>
+          </g>
+          <use transform="translate(60.89 89.27)" xlink:href="#image"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
