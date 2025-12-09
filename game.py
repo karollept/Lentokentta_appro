@@ -5,7 +5,7 @@ import sqlite3
 yhteys = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="",
+    password="140305",
     autocommit=True,
     database="lk_approt",
     port=3306

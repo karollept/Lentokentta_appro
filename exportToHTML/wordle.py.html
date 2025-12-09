@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>wordle.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+.s6 { color: #5f826b; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+wordle.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">mysql</span><span class="s2">.</span><span class="s1">connector</span>
+<span class="s0">import </span><span class="s1">random</span>
+
+<span class="s3"># Debug-kytkin</span>
+<span class="s1">DEBUG </span><span class="s2">= </span><span class="s0">True</span>
+
+<span class="s0">def </span><span class="s1">debug_log</span><span class="s2">(</span><span class="s1">msg</span><span class="s2">):</span>
+    <span class="s0">if </span><span class="s1">DEBUG</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;[DEBUG]&quot;</span><span class="s2">, </span><span class="s1">msg</span><span class="s2">)</span>
+
+
+<span class="s3"># --- TIETOKANTA ---</span>
+<span class="s1">yhteys </span><span class="s2">= </span><span class="s1">mysql</span><span class="s2">.</span><span class="s1">connector</span><span class="s2">.</span><span class="s1">connect</span><span class="s2">(</span>
+    <span class="s1">host</span><span class="s2">=</span><span class="s4">&quot;localhost&quot;</span><span class="s2">,</span>
+    <span class="s1">user</span><span class="s2">=</span><span class="s4">&quot;JonatanGM&quot;</span><span class="s2">,     </span><span class="s3"># vaihda oma nimi</span>
+    <span class="s1">password</span><span class="s2">=</span><span class="s4">&quot;123&quot;</span><span class="s2">,       </span><span class="s3"># vaihda oma salasana</span>
+    <span class="s1">autocommit</span><span class="s2">=</span><span class="s0">True</span><span class="s2">,</span>
+    <span class="s1">port</span><span class="s2">=</span><span class="s5">3306</span>
+<span class="s2">)</span>
+<span class="s1">cursor </span><span class="s2">= </span><span class="s1">yhteys</span><span class="s2">.</span><span class="s1">cursor</span><span class="s2">()</span>
+<span class="s1">cursor</span><span class="s2">.</span><span class="s1">execute</span><span class="s2">(</span><span class="s4">&quot;USE flight_game&quot;</span><span class="s2">)</span>
+
+
+<span class="s3"># --- WORDLE-LOGIIKKA ---</span>
+
+<span class="s0">def </span><span class="s1">vastaus_wordle_def</span><span class="s2">():</span>
+    <span class="s6">&quot;&quot;&quot;Hakee satunnaisen sanan tietokannasta ja palauttaa sen listana.&quot;&quot;&quot;</span>
+    <span class="s1">wordle_id </span><span class="s2">= [</span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s5">1</span><span class="s2">, </span><span class="s5">1426</span><span class="s2">)]</span>
+    <span class="s1">cursor</span><span class="s2">.</span><span class="s1">execute</span><span class="s2">(</span><span class="s4">&quot;SELECT sana FROM wordle WHERE id = %s&quot;</span><span class="s2">, </span><span class="s1">wordle_id</span><span class="s2">)</span>
+    <span class="s1">rows </span><span class="s2">= </span><span class="s1">cursor</span><span class="s2">.</span><span class="s1">fetchall</span><span class="s2">()</span>
+
+    <span class="s0">for </span><span class="s2">(</span><span class="s1">word</span><span class="s2">,) </span><span class="s0">in </span><span class="s1">rows</span><span class="s2">:</span>
+        <span class="s1">vastaus </span><span class="s2">= </span><span class="s1">list</span><span class="s2">(</span><span class="s1">word</span><span class="s2">)</span>
+
+    <span class="s1">debug_log</span><span class="s2">(</span><span class="s4">f&quot;Haettu sana (listana): </span><span class="s0">{</span><span class="s1">vastaus</span><span class="s0">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+    <span class="s0">return </span><span class="s1">vastaus</span>
+
+
+<span class="s0">def </span><span class="s1">checker_wordle</span><span class="s2">(</span><span class="s1">vastaus</span><span class="s2">, </span><span class="s1">arvaus_list</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Tarkistaa arvatun sanan kirjaimet.&quot;&quot;&quot;</span>
+    <span class="s1">checker </span><span class="s2">= []</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s5">5</span><span class="s2">):</span>
+        <span class="s0">if </span><span class="s1">arvaus_list</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] == </span><span class="s1">vastaus</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]:</span>
+            <span class="s1">checker</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s4">&quot;green&quot;</span><span class="s2">)</span>
+        <span class="s0">elif </span><span class="s1">arvaus_list</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] </span><span class="s0">in </span><span class="s1">vastaus</span><span class="s2">:</span>
+            <span class="s1">checker</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s4">&quot;yellow&quot;</span><span class="s2">)</span>
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">checker</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s4">&quot;reset&quot;</span><span class="s2">)</span>
+    <span class="s0">return </span><span class="s1">checker</span>
+
+
+<span class="s0">def </span><span class="s1">wordle_arvaus_def</span><span class="s2">(</span><span class="s1">arvaus</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Muuntaa annetun sanan listaksi.&quot;&quot;&quot;</span>
+    <span class="s0">return </span><span class="s2">[</span><span class="s1">kirjain </span><span class="s0">for </span><span class="s1">kirjain </span><span class="s0">in </span><span class="s1">arvaus</span><span class="s2">]</span>
+
+
+<span class="s0">def </span><span class="s1">wordle_5letters</span><span class="s2">():</span>
+    <span class="s6">&quot;&quot;&quot;Kysyy käyttäjältä syötteen ja varmistaa että se on 5-kirjaiminen.&quot;&quot;&quot;</span>
+    <span class="s0">while True</span><span class="s2">:</span>
+        <span class="s1">arvaus </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;&quot;</span><span class="s2">)</span>
+        <span class="s0">if </span><span class="s1">len</span><span class="s2">(</span><span class="s1">arvaus</span><span class="s2">) == </span><span class="s5">5 </span><span class="s0">and </span><span class="s1">isinstance</span><span class="s2">(</span><span class="s1">arvaus</span><span class="s2">, </span><span class="s1">str</span><span class="s2">):</span>
+            <span class="s0">break</span>
+    <span class="s0">return </span><span class="s1">arvaus</span><span class="s2">.</span><span class="s1">lower</span><span class="s2">()</span>
+
+
+<span class="s0">def </span><span class="s1">wordle_tulostus</span><span class="s2">(</span><span class="s1">color_code</span><span class="s2">, </span><span class="s1">checker</span><span class="s2">, </span><span class="s1">arvaus</span><span class="s2">, </span><span class="s1">loop</span><span class="s2">, </span><span class="s1">vastaus</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Tulostaa yhden kierroksen rivin ja tarkistaa voiton.&quot;&quot;&quot;</span>
+    <span class="s3"># Huom: tulostus jätettiin koska osa pelin toimintaa</span>
+    <span class="s1">win </span><span class="s2">= </span><span class="s0">False</span>
+    <span class="s1">print</span><span class="s2">(</span>
+        <span class="s1">color_code</span><span class="s2">[</span><span class="s1">checker</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]] + </span><span class="s4">f&quot;[</span><span class="s0">{</span><span class="s1">arvaus</span><span class="s2">[</span><span class="s5">0</span><span class="s2">]</span><span class="s0">}</span><span class="s4">]&quot;</span><span class="s2">,</span>
+        <span class="s1">color_code</span><span class="s2">[</span><span class="s1">checker</span><span class="s2">[</span><span class="s5">1</span><span class="s2">]] + </span><span class="s4">f&quot;[</span><span class="s0">{</span><span class="s1">arvaus</span><span class="s2">[</span><span class="s5">1</span><span class="s2">]</span><span class="s0">}</span><span class="s4">]&quot;</span><span class="s2">,</span>
+        <span class="s1">color_code</span><span class="s2">[</span><span class="s1">checker</span><span class="s2">[</span><span class="s5">2</span><span class="s2">]] + </span><span class="s4">f&quot;[</span><span class="s0">{</span><span class="s1">arvaus</span><span class="s2">[</span><span class="s5">2</span><span class="s2">]</span><span class="s0">}</span><span class="s4">]&quot;</span><span class="s2">,</span>
+        <span class="s1">color_code</span><span class="s2">[</span><span class="s1">checker</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]] + </span><span class="s4">f&quot;[</span><span class="s0">{</span><span class="s1">arvaus</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]</span><span class="s0">}</span><span class="s4">]&quot;</span><span class="s2">,</span>
+        <span class="s1">color_code</span><span class="s2">[</span><span class="s1">checker</span><span class="s2">[</span><span class="s5">4</span><span class="s2">]] + </span><span class="s4">f&quot;[</span><span class="s0">{</span><span class="s1">arvaus</span><span class="s2">[</span><span class="s5">4</span><span class="s2">]</span><span class="s0">}</span><span class="s4">]&quot; </span><span class="s2">+ </span><span class="s1">reset</span>
+    <span class="s2">)</span>
+
+    <span class="s0">if </span><span class="s1">all</span><span class="s2">(</span><span class="s1">c </span><span class="s2">== </span><span class="s4">&quot;green&quot; </span><span class="s0">for </span><span class="s1">c </span><span class="s0">in </span><span class="s1">checker</span><span class="s2">):</span>
+        <span class="s1">loop </span><span class="s2">+= </span><span class="s5">6</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Onnittelut voitosta!&quot;</span><span class="s2">)</span>
+        <span class="s1">win </span><span class="s2">= </span><span class="s0">True</span>
+    <span class="s0">else</span><span class="s2">:</span>
+        <span class="s1">loop </span><span class="s2">+= </span><span class="s5">1</span>
+
+    <span class="s0">if </span><span class="s1">loop </span><span class="s2">&gt;= </span><span class="s5">6 </span><span class="s0">and not </span><span class="s1">win</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Hävisit pelin, oikea sana oli </span><span class="s0">{</span><span class="s1">vastaus</span><span class="s0">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+    <span class="s0">return </span><span class="s1">loop</span><span class="s2">, </span><span class="s1">win</span>
+
+
+<span class="s0">def </span><span class="s1">ohjeet_wordle</span><span class="s2">(</span><span class="s1">green</span><span class="s2">, </span><span class="s1">yellow</span><span class="s2">, </span><span class="s1">reset</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Tulostaa pelin ohjeet.&quot;&quot;&quot;</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Terve tuloa pelaamaan wordle peliä!</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;Tehtäväsi on arvata 5-kirjaiminen sana</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;Arvauksen jälkeen näet mitkä kirjaimet olivat oikeita ja mitkä oikealla paikalla</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;Sinulla on yhteensä 6 yritystä arvata sana</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;Voit syöttää vain sanoja perus muodossa, ei esim monikkoja</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span>
+          <span class="s4">&quot;Esimerkki jossa vastaus on sana 'koira' ja olet arvannut 'ruoka' ja 'kissa':</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">,</span>
+          <span class="s1">yellow </span><span class="s2">+ </span><span class="s4">&quot;[r]&quot;</span><span class="s2">, </span><span class="s1">reset </span><span class="s2">+ </span><span class="s4">&quot;[u]&quot;</span><span class="s2">, </span><span class="s1">yellow </span><span class="s2">+ </span><span class="s4">&quot;[o]&quot;</span><span class="s2">, </span><span class="s1">yellow </span><span class="s2">+ </span><span class="s4">&quot;[k]&quot;</span><span class="s2">, </span><span class="s1">green </span><span class="s2">+ </span><span class="s4">&quot;[a]</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">,</span>
+          <span class="s1">green </span><span class="s2">+ </span><span class="s4">&quot;[k]&quot;</span><span class="s2">, </span><span class="s1">yellow </span><span class="s2">+ </span><span class="s4">&quot;[i]&quot;</span><span class="s2">, </span><span class="s1">reset </span><span class="s2">+ </span><span class="s4">&quot;[s]&quot;</span><span class="s2">, </span><span class="s4">&quot;[s]&quot;</span><span class="s2">, </span><span class="s1">green </span><span class="s2">+ </span><span class="s4">&quot;[a]</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">,</span>
+          <span class="s1">reset </span><span class="s2">+ </span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span>
+                  <span class="s4">&quot;Kun olet valmis jatkamaan pelin syötä mikätahansa merkki&quot;</span><span class="s2">)</span>
+    <span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Syötä ensimmäinen sana:&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">wordle</span><span class="s2">(</span><span class="s1">loop</span><span class="s2">, </span><span class="s1">green</span><span class="s2">, </span><span class="s1">yellow</span><span class="s2">, </span><span class="s1">reset</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Pelin päälooppi.&quot;&quot;&quot;</span>
+    <span class="s1">vastaus_wordle </span><span class="s2">= </span><span class="s1">vastaus_wordle_def</span><span class="s2">()</span>
+    <span class="s1">ohjeet_wordle</span><span class="s2">(</span><span class="s1">green</span><span class="s2">, </span><span class="s1">yellow</span><span class="s2">, </span><span class="s1">reset</span><span class="s2">)</span>
+
+    <span class="s0">while </span><span class="s1">loop </span><span class="s2">&lt; </span><span class="s5">6</span><span class="s2">:</span>
+        <span class="s1">arvaus </span><span class="s2">= </span><span class="s1">wordle_5letters</span><span class="s2">()</span>
+        <span class="s1">wordle_arvaus </span><span class="s2">= </span><span class="s1">wordle_arvaus_def</span><span class="s2">(</span><span class="s1">arvaus</span><span class="s2">)</span>
+        <span class="s1">wordle_checker </span><span class="s2">= </span><span class="s1">checker_wordle</span><span class="s2">(</span><span class="s1">vastaus_wordle</span><span class="s2">, </span><span class="s1">wordle_arvaus</span><span class="s2">)</span>
+        <span class="s1">loop</span><span class="s2">, </span><span class="s1">voitto_wordle </span><span class="s2">= </span><span class="s1">wordle_tulostus</span><span class="s2">(</span><span class="s1">wordle_color_code</span><span class="s2">, </span><span class="s1">wordle_checker</span><span class="s2">, </span><span class="s1">wordle_arvaus</span><span class="s2">, </span><span class="s1">loop</span><span class="s2">, </span><span class="s1">vastaus_wordle</span><span class="s2">)</span>
+
+    <span class="s0">return </span><span class="s1">voitto_wordle</span>
+
+
+<span class="s3"># Värit</span>
+<span class="s1">wordle_color_code </span><span class="s2">= {</span>
+    <span class="s4">&quot;green&quot;</span><span class="s2">: </span><span class="s4">&quot;</span><span class="s0">\033</span><span class="s4">[32m&quot;</span><span class="s2">,</span>
+    <span class="s4">&quot;yellow&quot;</span><span class="s2">: </span><span class="s4">&quot;</span><span class="s0">\033</span><span class="s4">[33m&quot;</span><span class="s2">,</span>
+    <span class="s4">&quot;reset&quot;</span><span class="s2">: </span><span class="s4">&quot;</span><span class="s0">\033</span><span class="s4">[0m&quot;</span>
+<span class="s2">}</span>
+
+<span class="s1">green </span><span class="s2">= </span><span class="s4">&quot;</span><span class="s0">\033</span><span class="s4">[32m&quot;</span>
+<span class="s1">yellow </span><span class="s2">= </span><span class="s4">&quot;</span><span class="s0">\033</span><span class="s4">[33m&quot;</span>
+<span class="s1">reset </span><span class="s2">= </span><span class="s4">&quot;</span><span class="s0">\033</span><span class="s4">[0m&quot;</span>
+
+
+<span class="s3"># --- Käynnistys ---</span>
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s4">'__main__'</span><span class="s2">:</span>
+    <span class="s1">loop_wordle </span><span class="s2">= </span><span class="s5">0</span>
+    <span class="s1">wordle</span><span class="s2">(</span><span class="s1">loop_wordle</span><span class="s2">, </span><span class="s1">green</span><span class="s2">, </span><span class="s1">yellow</span><span class="s2">, </span><span class="s1">reset</span><span class="s2">)</span>
+</pre>
+</body>
+</html>

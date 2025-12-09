@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Valitse kohde</title>
+    <link rel="stylesheet" href="../static/game.css">
+    <script src="../static/game.js" defer></script>
+</head>
+<body>
+
+<h1>Valitse kohde</h1>
+
+<div id="choices">
+    <div class="choice" data-dest=""></div>
+    <div class="choice" data-dest=""></div>
+    <div class="choice" data-dest=""></div>
+</div>
+
+<form id="flightForm" action="/game/select_flight" method="POST">
+    <input type="hidden" name="to" id="selectedDest">
+    <button id="flyButton" disabled>Lennä</button>
+</form>
+
+</body>
+</html>
