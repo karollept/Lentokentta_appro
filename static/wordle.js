@@ -149,9 +149,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             wordle = new Wordle(grid, answerToList(answer))
         });
 
-    fetchStory()
+    await fetchStory()
 
-    // 📌📌📌📌 STORY bo sulkeminen 📌📌📌📌
+    // 📌📌📌📌 STORY box sulkeminen 📌📌📌📌
     const storyContainer = document.getElementById('storyOverlay');
     const storyClose = document.getElementById('storyClose');
     storyClose.addEventListener('click', () => {

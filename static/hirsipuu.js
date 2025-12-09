@@ -96,7 +96,7 @@ function stringToArray (string) {
 let answer;
 let printToPage = [];
 let hp;
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const timestamp = new Date().getTime();
     fetch("/hirsipuu/get_value")
         .then(res => res.json())
@@ -123,6 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
             elementBudget.innerHTML = budget + "€";
             elementLocation.innerHTML = location;
         })
+
+    await fetchStory()
+    // 📌📌📌📌 STORY box sulkeminen 📌📌📌📌
+    const storyContainer = document.getElementById('storyOverlay');
+    const storyClose = document.getElementById('storyClose');
+    storyClose.addEventListener('click', () => {
+        storyContainer.className = 'story-hidden'
+    })
 
 });
 

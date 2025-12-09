@@ -4,130 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>wordle</title>
-
+    <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
-<img src="../static/img/placeHolder.png" alt="Unable to load image!">
 
-<div id="storyOverlay" class="">
-    <div id="storyBox">
-        <div id="storyClose">&times;</div>
-        <div id="storyContent">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto esse fugit impedit ipsa
-            laudantium minima mollitia nobis provident, quae, quam reprehenderit similique sint sit sunt totam veritatis
-            vitae voluptates!
-        </div>
-    </div>
-</div>
+<style>
+  .purple-icon {
+    color: purple; /* Or a specific hex code like #800080 */
+    font-size: 24px; /* Default size, can be adjusted */
+  }
+</style>
 
-
-<nav>
-    <div id="sijainti">
-        <img src="../static/img/location_icon.png" alt="">
-        <p id="location"></p>
-    </div>
-    <div id="budjetti">
-        <p>BUDJETTI:</p>
-        <p id="budget"></p>
-    </div>
-</nav>
-
-<div class="menu-btn" id="menu-btn">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-<div class="nav-menu" id="nav-menu">
-    <ul>
-        <li><a href="home.html">Koti</a></li>
-        <li><a href="instructions.html">Ohjeet</a></li>
-        <li><a href="game-map.html">Kartta</a></li>
-        <li><a href="../game">Minipelit</a></li>
-        <li><a href="../haalarimerkit">Haalarimerkit</a></li>
-    </ul>
-</div>
-
-<main>
-    <!-- Grid-alue -->
-    <div id="grid-container">
-        <!-- tilet -->
-        <div class="tile" id="11"></div>
-        <div class="tile" id="12"></div>
-        <div class="tile" id="13"></div>
-        <div class="tile" id="14"></div>
-        <div class="tile" id="15"></div>
-        <div class="tile" id="21"></div>
-        <div class="tile" id="22"></div>
-        <div class="tile" id="23"></div>
-        <div class="tile" id="24"></div>
-        <div class="tile" id="25"></div>
-        <div class="tile" id="31"></div>
-        <div class="tile" id="32"></div>
-        <div class="tile" id="33"></div>
-        <div class="tile" id="34"></div>
-        <div class="tile" id="35"></div>
-        <div class="tile" id="41"></div>
-        <div class="tile" id="42"></div>
-        <div class="tile" id="43"></div>
-        <div class="tile" id="44"></div>
-        <div class="tile" id="45"></div>
-        <div class="tile" id="51"></div>
-        <div class="tile" id="52"></div>
-        <div class="tile" id="53"></div>
-        <div class="tile" id="54"></div>
-        <div class="tile" id="55"></div>
-        <div class="tile" id="61"></div>
-        <div class="tile" id="62"></div>
-        <div class="tile" id="63"></div>
-        <div class="tile" id="64"></div>
-        <div class="tile" id="65"></div>
-    </div>
-
-    <div id="text-container">
-        <h1>WORDLE</h1>
-        <section id="wordle-saannot">
-            <h2>📝 Pelin säännöt</h2>
-            <p>Wordle on sananarvauspeli, jossa pelaajan tavoitteena on arvata tietty **viisikirjaiminen** sana.</p>
-
-            <h3>Perusohjeet</h3>
-            <ul>
-                <li><strong>Sanan pituus:</strong> Kaikki sanat ovat tasan viisi kirjainta pitkiä.</li>
-                <li><strong>Arvausmäärä:</strong> Sinulla on yhteensä **kuusi (6)** yritystä löytääksesi oikean sanan.
-                </li>
-                <li><strong>Pelaaminen:</strong> Peliä pelataan tyypillisesti kerran päivässä.</li>
-            </ul>
-
-            <h3>Palaute (Värikoodaus)</h3>
-            <p>Jokaisen arvauksen jälkeen saat palautetta värikoodauksen avulla:</p>
-
-            <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
-                <thead>
-                <tr>
-                    <th style="padding: 8px;">Väri</th>
-                    <th style="padding: 8px;">Merkitys</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td style="background-color: #6aaa64; color: white; padding: 8px;"><strong>Vihreä 🟢</strong></td>
-                    <td style="padding: 8px;">Kirjain on oikea ja **oikeassa paikassa** sanassa.</td>
-                </tr>
-                <tr>
-                    <td style="background-color: #c9b458; color: white; padding: 8px;"><strong>Keltainen 🟡</strong></td>
-                    <td style="padding: 8px;">Kirjain on oikea, mutta **väärässä paikassa** (se esiintyy sanassa).</td>
-                </tr>
-                <tr>
-                    <td style="background-color: #787c7e; color: white; padding: 8px;"><strong>Harmaa ⚫</strong></td>
-                    <td style="padding: 8px;">Kirjain **ei esiinny** sanassa lainkaan.</td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </div>
-
-</main>
-
-
+<i class="material-icons purple-icon">place</i>
+<span class="material-icons purple-icon">location_on</span>
 </body>
 </html>
