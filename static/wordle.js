@@ -41,7 +41,6 @@ class Grid {
         const element= document.getElementById(`${this.row}${wordle.colum+1}`);
 
         // Muuttaa taustavärin kirjaimille
-        console.log(`${this.row}${wordle.colum+1}`)
         element.style.backgroundColor = wordle.letterColor;
     }
 
@@ -140,7 +139,7 @@ let grid;
 let wordle;
 
 // flask backend
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     fetch("/wordle/get_value")
         .then(res => res.json())
         .then(data => {
@@ -149,6 +148,15 @@ document.addEventListener("DOMContentLoaded", () => {
             grid = new Grid();
             wordle = new Wordle(grid, answerToList(answer))
         });
+
+    fetchStory()
+
+    // 📌📌📌📌 STORY bo sulkeminen 📌📌📌📌
+    const storyContainer = document.getElementById('storyOverlay');
+    const storyClose = document.getElementById('storyClose');
+    storyClose.addEventListener('click', () => {
+        storyContainer.className = 'story-hidden'
+    })
 
 });
 

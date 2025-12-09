@@ -1,3 +1,5 @@
+from logging import raiseExceptions
+
 from flask import Flask, render_template, jsonify, request, session, make_response
 import mysql.connector
 import random
@@ -133,8 +135,32 @@ def update_token():
         if yhteys:
             yhteys.close()
 
+# käytä tämä funktio sijainnin päivittymisen jälkeen uuteen.
+def get_story():
+    location = session.get('location')
 
-# Projektin etusivu
+    try:
+        yhteys = get_connection()
+        cursor = yhteys.cursor()
+
+        sql= "SELECT story FROM stories WHERE stories.ident = %s"
+        cursor.execute(sql, (location,))
+        story = cursor.fetchone()
+
+    except mysql.connection.Error as err:
+        if yhteys:
+            yhteys.rollback()
+        else: return False
+
+    finally:
+        if cursor:
+            cursor.close()
+        if yhteys:
+            yhteys.close()
+
+    return story[0]
+
+    # Projektin etusivu
 @app.route("/")
 def home():#
 
@@ -315,14 +341,18 @@ def game_get_yhteydet():
 @app.route("/game/select_flight", methods=['POST'])
 def select_flight():
     destination = request.form['to']
+    location = session.get('location')
+    price = get_flight_price(location, destination)
+    print(f"Price : {price}")
 
-    price = get_flight_price(session['location'], destination)
     #location = ICAO koodi kuten EFHK
     if price is not None:
         session['budget'] -= price
         session['round'] += 1
         session['location'] = destination
         print("Uusi sijainti:", session['location'])
+
+    session['story'] = get_story()
 
     minigame= get_minigame_for_player()
     print("Valittu minipeli:", minigame)
@@ -339,7 +369,28 @@ def info():
 
     return jsonify({"location": result[0], "budget": session['budget']})
 
+@app.route('/game/get_story', methods = ['GET'])
+def story_minigame():
+    print("story_minigame activated")
+    story = session.get('story', None)
 
+    if story is not None:
+        story_text = story
+    elif story is None:
+        story_text = ""
 
+    print("tarina return: ", story)
+    return jsonify({"story": story_text})
+
+@app.route("/game/get_price", methods=['GET'])
+def price_minigame():
+    location = session.get('location')
+    destination = request.args.get('ident1')
+    price = get_flight_price(location, destination)
+
+    if price is not None:
+        return jsonify({"price": price})
+    else:
+        return jsonify({"error": "Hintaa ei löytynyt"}), 404
 if __name__ == "__main__":
     app.run(debug=True)
