@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, request, jsonify, make_response, session
 from flask_cors import CORS
 import mysql.connector
@@ -95,6 +94,7 @@ def signup():
         pass
 
     return jsonify({"message": "Tili luotu onnistuneesti!"}), 201
+
 
 
 @app.route("/login", methods=["POST"])

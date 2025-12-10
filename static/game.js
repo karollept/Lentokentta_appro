@@ -34,13 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // KAIKKI HINNAT
             const prices = await arrayOfConnectionPrice(connectionIdents);
 
-            // 3. Aseta tiedot DOMiin (NIMET JA HINNAT YHDESSÄ)
             for (let i = 0; i < count; i++) {
                 const element = elements[i]; // Tämä on .choice-div
                 const destination = data[i].ident;
                 const name = data[i].name;
 
-                // Aseta kohde ID
                 element.dataset.dest = destination;
 
                 //  nimi päivitys lapsielementtiin (.dest-name)
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     nameElement.innerHTML = name;
                 }
 
-                // Päivitä HINTA lapsielementtiin (.dest-price)
                 if (i < prices.length) { // hinta olemassa
                     const priceElement = element.querySelector('.dest-price');
                     if (priceElement) {
