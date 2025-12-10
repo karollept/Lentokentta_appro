@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KPS</title>
+    <script src="../static/script/kps.js" defer></script>
+    <script src="../static/script/info.js" defer></script>
+    <script src="../static/script/sendBoolean.js"></script>
+    <link rel="stylesheet" href="../static/styles/kps.css">
+</head>
+<body>
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="nav-menu" id="nav-menu">
+    <ul>
+        <li><a href="home.html">Koti</a></li>
+        <li><a href="instructions.html">Ohjeet</a></li>
+        <li><a href="game-map.html">Kartta</a></li>
+        <li><a href="minipelit.html">Minipelit</a></li>
+        <li><a href="haalarimerkit.html">Haalarimerkit</a></li>
+
+    </ul>
+</div>
+    <div id="boxi">
+        <h1>Tervetuloa Kivi–Sakset–Paperi -peliin!</h1>
+        <p>Ensimmäinen 3 pisteessä voittaa.<br><br>Valitse kivi, sakset tai paperi:</p>
+
+        <div id="kuvat">
+            <img src="../static/images/kivi1.png" alt="kivi" onclick="playRound('kivi')">
+            <img src="../static/images/sakset1.png" alt="sakset" onclick="playRound('sakset')">
+            <img src="../static/images/paperi1.png" alt="paperi" onclick="playRound('paperi')">
+        </div>
+
+        <hr id="hr">
+
+        <div>
+            <img src="../static/images/kivi2.png" alt="kivi3" id="action2">
+            <img src="../static/images/kivi1.png" alt="kivi2" id="action1">
+
+        </div>
+
+      <div id="result">Kierros: 1</div>
+      <div id="score">Pisteet:</div>
+
+    </div>
+        <div id="overlay">
+            <div id="overlayBox">
+                <div id="overlayMessage"></div>
+                <a href="../pelisivu/ps.html">Jatka</a>
+            </div>
+        </div>
+
+
+
+
+
+
+</body>
+</html>

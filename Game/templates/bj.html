@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blackjack</title>
+    <script src="../static/script/bj.js" defer></script>
+    <script src="../script/static/info.js" defer></script>
+    <script src="../static/sendBoolean.js"></script>
+    <link rel="stylesheet" href="../static/styles/bj.css">
+</head>
+<body>
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="nav-menu" id="nav-menu">
+    <ul>
+        <li><a href="home.html">Koti</a></li>
+        <li><a href="instructions.html">Ohjeet</a></li>
+        <li><a href="game-map.html">Kartta</a></li>
+        <li><a href="minipelit.html">Minipelit</a></li>
+        <li><a href="haalarimerkit.html">Haalarimerkit</a></li>
+
+    </ul>
+</div>
+<div id="boxi">
+    <h1>Tervetuloa Blackjack peliin!</h1>
+    <button onclick="ohjeet()">Ohjeet</button>
+    <div id="game">
+        <p id="player"></p>
+        <button onclick="drawCard(); " id="hitBtn">Ota kortti</button>
+        <button onclick="showDealer(); calculateHand()" id="standBtn">Jää</button>
+        <p id="dealer"></p>
+
+        <p id="lopputulos"></p>
+    </div>
+</div>
+<div id="overlay">
+    <div id="overlayBox">
+        <div id="overlayMessage"></div>
+        <a href="../pelisivu/ps.html" id="overlayLink">Jatka</a>
+    </div>
+</div>
+<div id="ohjeOverlay">
+    <div id="ohjeOverlayBox">
+        <div id="ohjeMessage">
+            <h2>Blackjack – Ohjeet</h2>
+            <ul>
+                <li><strong>Tavoite:</strong> Saada korttien summa mahdollisimman lähelle 21 ilman että menee yli.</li>
+                <li><strong>Korttien arvot:</strong>
+                    <ul>
+                        <li>Numerokortit = oma numero (2–10)</li>
+                        <li>J, Q, K = 10</li>
+                        <li>A = 1 tai 11 (pelaajalle edullisempi arvo)</li>
+                    </ul>
+                </li>
+                <li><strong>Pelin kulku:</strong>
+                    <ol>
+                        <li>Pelaajalle ja jakajalle jaetaan aluksi kaksi korttia.</li>
+                        <li>Pelaaja näkee omat korttinsa ja yhden jakajan kortin.</li>
+                        <li>Pelaaja päättää:
+                            <ul>
+                                <li><em>Ota kortti</em> → nostaa uuden kortin.</li>
+                                <li><em>Jää</em> → ei nosta enää kortteja.</li>
+                            </ul>
+                        </li>
+                        <li>Jos pelaajan summa menee yli 21 → häviö heti.</li>
+                        <li>Kun pelaaja jää, jakaja nostaa kortteja kunnes summa on vähintään 17.</li>
+                        <li>Lopuksi verrataan tulokset:
+                            <ul>
+                                <li>Jos jakaja menee yli 21 → pelaaja voittaa.</li>
+                                <li>Jos pelaajan summa on lähempänä 21 kuin jakajan → pelaaja voittaa.</li>
+                                <li>Jos jakajan summa on lähempänä → pelaaja häviää.</li>
+                                <li>Jos summat ovat samat → tasapeli.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+
+        </div>
+        <button id="ohjeButton">Sulje</button>
+    </div>
+</div>
+</body>
+</html>

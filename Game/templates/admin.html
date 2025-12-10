@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lentokenttä Appro Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/styles/admin.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1 id="dashboard-title">Admin Dashboard</h1>
+    <div class="nav-buttons">
+      <button class="nav-btn active" id="nav-home"><i class="fas fa-chart-bar"></i> Etusivu</button>
+      <button class="nav-btn" id="nav-users"><i class="fas fa-users"></i> Käyttäjät</button>
+      <button class="nav-btn" id="nav-data"><i class="fas fa-database"></i> Pelin data</button>
+      <button class="nav-btn" id="logout-btn" title="Kirjaudu ulos" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text-secondary)">
+        <i class="fas fa-sign-out-alt"></i> Kirjaudu ulos
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="content-container">
+      <div id="app-meta" style="display:none">
+        <span id="welcome-message">Tervetuloa admin-paneeliin!</span>
+      </div>
+
+      <div id="content">
+        <div class="welcome-section">
+          <h2 id="welcome-area">Tervetuloa admin-paneeliin!</h2>
+          <p>Hallitse Lentokenttä Appro -peliä tehokkaasti. Valitse ylävalikosta osio nähdäksesi yksityiskohtaiset tiedot ja hallintaominaisuudet.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../static/script/admin.js"></script>
+</body>
+</html>

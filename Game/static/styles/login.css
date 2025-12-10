@@ -1,0 +1,434 @@
+    @font-face { 
+        font-family: "Glora"; 
+        src: url("../fonts/Glora_Bold.ttf") format("truetype"); 
+    }
+
+    @font-face { 
+        font-family: "Astrid"; 
+        src: url("../fonts/Astrid.ttf") format("truetype"); 
+    }
+
+    @font-face { 
+        font-family: "Sphere"; 
+        src: url("../fonts/Sphere.otf") format("opentype"); 
+    }
+
+    :root { 
+        --accent: #856DD9;
+    }
+
+    * { 
+    -webkit-box-sizing: border-box; 
+            box-sizing: border-box; 
+    }
+
+    html, body { 
+    height: 100%; 
+    margin: 0; 
+    }
+
+    body {
+    font-family: 'Sphere';
+    background: url("../images/taustakuva_03.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    }
+
+    .card {
+    background-color: rgba(255,255,255,0.92);
+    padding: 2rem 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    -webkit-box-shadow: 0 6px 26px rgba(0,0,0,0.16);
+            box-shadow: 0 6px 26px rgba(0,0,0,0.16);
+    }
+
+    .card h1 {
+    color: var(--accent);
+    font-family: 'Astrid';
+    font-size: 1.9rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+    }
+
+    .card label {
+    display: block;
+    margin-top: 1rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    }
+
+    .card input[type="text"],
+    .card input[type="password"],
+    .card input[type="number"] {
+    width: 70%;
+    max-width: 600px;
+    padding: 0.6rem;
+    border: 2px solid var(--accent);
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.4rem auto 0 auto;
+    font-family: 'Sphere';
+    background: #fff;
+    outline: none;
+    }
+
+    .diff-btn {
+    font-family: 'Sphere';
+    font-size: 1rem;
+    border: 2px solid var(--accent);
+    padding: 0.6rem 2rem;
+    margin: 0.5rem;
+    background: white;
+    color: var(--accent);
+    cursor: pointer;
+    -webkit-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s;
+    }
+
+    .diff-btn:hover,
+    .diff-btn.active {
+    background: var(--accent);
+    color: white;
+    }
+
+    .modal-btn {
+    font-family: 'Sphere';
+    font-size: 0.88rem;
+    padding: 0.45rem 0.9rem;
+    border: 2px solid var(--accent);
+    background: white;
+    color: var(--accent);
+    cursor: pointer;
+    -webkit-transition: 0.22s;
+    -o-transition: 0.22s;
+    transition: 0.22s;
+    }
+
+    .modal-btn:hover {
+    background: var(--accent);
+    color: white;
+    }
+
+    .start {
+    background: white;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 0.85rem 1.6rem;
+    font-size: 1.15rem;
+    cursor: pointer;
+    -webkit-transition: 0.22s;
+    -o-transition: 0.22s;
+    transition: 0.22s;
+    font-family: 'Sphere';
+    }
+
+    .start:hover{ 
+    background: var(--accent); 
+    color:white; 
+    }
+
+    .bottom-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 12px;
+    margin-top: 1.4rem;
+    }
+
+    .bottom-row .corner {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    }
+
+    .bottom-row .center {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    }
+
+    .player-area {
+    display: none; 
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; 
+    -webkit-box-align: center; 
+        -ms-flex-align: center; 
+            align-items: center;
+    }
+
+    .player-input-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0.25rem auto;
+    }
+
+    .player-input-row input#playerId {
+    width: 320px;
+    max-width: calc(100% - 140px);
+    padding: 0.6rem;
+    border: 2px solid var(--accent);
+    text-align: center;
+    background: #fff;
+    }
+
+    .player-suggestions-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    margin-top: 0.6rem;
+    }
+
+    .suggestions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 10px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-width: 680px;
+    }
+
+    .suggestions button {
+    padding: 0.38rem 0.75rem;
+    border: 2px solid white;
+    background: #d2c9f0;
+    color: var(--accent);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    -webkit-transition: 0.18s;
+    -o-transition: 0.18s;
+    transition: 0.18s;
+    }
+
+    .suggestions button:hover {
+    background: var(--accent);
+    color: white;
+    }
+
+    .small-btn {
+    padding: 0.45rem 0.80rem;
+    border: 2px solid var(--accent);
+    background: white;
+    color: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    -webkit-transition: 0.18s;
+    -o-transition: 0.18s;
+    transition: 0.18s;
+    gap: 2px;
+    }
+
+    .small-btn:hover {
+    background: var(--accent);
+    color: white;
+    }
+
+    .player-buttons-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 10px; 
+    margin-top: 0.7rem;
+    width: 100%;
+    }
+
+    .player-buttons-row .small-btn {
+    min-width: 140px;
+    }
+
+    .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 10;
+    color: #856DD9;
+    }
+
+    .modal .box {
+    background: white;
+    padding: 2rem;
+    width: 500px;
+    text-align: center;
+    -webkit-box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .box input[type="text"],
+    .box input[type="password"],
+    .box input[type="number"] {
+    width: 95%;
+    max-width: 800px;
+    padding: 0.6rem;
+    border: 2px solid var(--accent);
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.4rem auto 0 auto;
+    font-family: 'Sphere';
+    background: #fff;
+    outline: none;
+    gap: 0.4px
+    }
+
+    .submit-btn {
+    background: white;
+    color: #856DD9;
+    border: 2px solid #856DD9;
+    padding: 0.6rem 2rem;
+    font-family: 'Sphere';
+    margin-top: 1rem;
+    margin-right: 0.7rem;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+    background: #856DD9;
+    color: white;
+    }
+
+    .cancel-btn {
+    background: white;
+    color: #856DD9;
+    border: 2px solid #856DD9;
+    padding: 0.6rem 2rem;
+    font-family: 'Sphere';
+    margin-top: 1rem;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    }
+
+    .cancel-btn:hover {
+    background: #ff3b30;
+    border: 2px solid #ff3b30;
+    color: white;
+    }
+
+
+
+    
+
+
+
+
+
+
+
+    @media (max-width: 760px) {
+    .card { 
+        padding: 1.6rem; 
+        max-width: 560px; 
+    }
+
+    .player-input-row { 
+        gap: 8px; 
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal; 
+        -ms-flex-direction: column; 
+        flex-direction: column; 
+    }
+
+    .player-input-row label { 
+        display:block; 
+    }
+
+    .player-input-row input#playerId { 
+        width: 100%; 
+        max-width: 420px; 
+    }
+
+    .player-buttons-row { 
+        gap: 20px; 
+        -ms-flex-wrap: wrap; 
+        flex-wrap: wrap; 
+    }
+
+    .bottom-row { 
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal; 
+        -ms-flex-direction: column; 
+        flex-direction: column; 
+        gap: 12px; 
+    }
+
+    .bottom-row .center { 
+        -webkit-box-ordinal-group: 3; 
+        -ms-flex-order: 2; 
+        order: 2; 
+    }
+
+    .bottom-row .corner { 
+        -webkit-box-ordinal-group: 2; 
+        -ms-flex-order: 1; 
+        order: 1; 
+    }
+    }
