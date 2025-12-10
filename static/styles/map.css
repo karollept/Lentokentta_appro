@@ -1,0 +1,104 @@
+    @font-face { 
+        font-family: "Glora"; 
+        src: url("../fonts/Glora_Bold.ttf") format("truetype"); 
+    }
+
+    @font-face { 
+        font-family: "Astrid"; 
+        src: url("../fonts/Astrid.ttf") format("truetype"); 
+    }
+
+    @font-face { 
+        font-family: "Sphere"; 
+        src: url("../fonts/Sphere.otf") format("opentype"); 
+    }
+
+body {
+  margin: 0;
+  background: url('../images/taustakuva_03.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Astrid', sans-serif;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-container {
+  flex: 1;
+  background: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.map-container svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateX(-60px);
+}
+
+.card {
+  flex: 0.5;
+  background: white;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.card h1 {
+  font-size: 40px;
+  color: #6b57c7;
+  font-family: 'Astrid';
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 18px;
+  color: #6b57c7;
+  margin-bottom: 15px;
+}
+
+#airport-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+}
+
+#airport-name::before {
+  content: '';
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-image: url('../images/location.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+#airport-logo {
+  width: 180px;
+  height: auto;
+  margin-top: 10px;
+}
+
+path {
+  fill: #856DD9;
+  stroke: #fff;
+  transition: fill 0.2s;
+  cursor: pointer;
+}
+
+path:hover {
+  fill: #856DD9;
+}
+
+.selected-country {
+  fill: #002F6C !important;
+}
