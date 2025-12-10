@@ -53,13 +53,13 @@ def minigame_select(minigame):
         elif minigame == "Hirsipuu":
             return render_template("hirsipuu.html")
         elif minigame == "Numeron arvaus":
-            return render_template("game.html")
+            return render_template("na.html")
         elif minigame == "Kivi_sakset_paperi":
-            return render_template("game.html")
+            return render_template("kps.html")
         elif minigame == "Matikkavisa":
-            return render_template("game.html")
+            return render_template("mv.html")
         elif minigame == "Blackjack":
-            return render_template("game.html")
+            return render_template("bj.html")
     return None
 
 def get_player_data():
@@ -165,22 +165,21 @@ def get_story():
 def home():#
 
     # Pelaajan id
-    session['player_id'] = 14
+    session['player_id'] = 10
     stats = get_player_data()
     print(stats)
     # Pelaajan sijainti
-    if stats and len(stats) >= 2:
-
+    if stats:
         session['location'] = stats[0][0]
         # Pelaajan budjetti
         session['budget'] = stats[0][1]
     else:
         session['location'] = "EFHK"
-        session['budget'] = 0
+        session['budget'] = 20000
 
     # Kierrosnumero
     session['round'] = 1
-
+    print(session['budget'])
     return render_template("index.html")
 
 # Wordle-sivun reitti

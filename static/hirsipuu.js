@@ -93,6 +93,11 @@ function stringToArray (string) {
     return array;
 }
 
+function naytaOverlay(teksti) {
+  document.getElementById('overlayMessage').textContent = teksti;
+  document.getElementById('overlay').style.display = 'flex';
+}
+
 let answer;
 let printToPage = [];
 let hp;
@@ -168,7 +173,7 @@ guessButton.addEventListener('click', (e) => {
     }
 
     if (hp.loseCheck()) {
-        alert(`Hävisit, oikea sana oli: ${answer.join("")}`);
+        naytaOverlay(`Hävisit, oikea sana oli: ${answer.join("")}`)
         sendBoolean(false)
         return;
     }
@@ -176,7 +181,7 @@ guessButton.addEventListener('click', (e) => {
     hp.updateProgress();
 
     if (hp.win === true) {
-        alert("Voitit!");
+        naytaOverlay(`Voitit pelin, onneksi olkoon! sana oli: ${answer.join("")}`)
         sendBoolean(true)
     }
 

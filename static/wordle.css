@@ -1,7 +1,21 @@
+@font-face {
+    font-family: MyFont;
+    src: url("../static/fonts/Astrid.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: MyFont2;
+    src: url("../static/fonts/Sphere Fez.otf");
+    font-weight: normal;
+    font-style: normal
+}
 
 body {
     margin: 0;
     padding: 0;
+    font-family: MyFont, Arial, sans-serif;
 }
 
 /* Taustakuva koko alueelle */
@@ -50,13 +64,13 @@ nav {
     font-size: 2.5rem;
     font-weight: 600;
     color: #856DD9;
-
+    font-family: MyFont2, Arial, sans-serif;
 }
 #budjetti {
     margin-left: 8rem;
 }
 /* Mainin ulkoinen boksi */
-/* Main Flex: grid vasemmalle, tekstit oikealle */
+/* Main flex: grid vasemmalle, tekstit oikealle */
 main {
     display: flex;
     justify-content: space-between;
@@ -78,7 +92,7 @@ main {
     grid-template-rows: repeat(6, 5rem);
     gap: 1rem;
     justify-content: start;
-    align-content: start; /* alin rivi 6rem pohjasta */
+    align-content: start;
     padding-left: 10rem;
     margin-top: 1.5rem;
 }
@@ -126,4 +140,46 @@ main {
     min-height: 0;
 
     box-sizing: border-box;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 998;
+    backdrop-filter: blur(3px);
+}
+
+#overlayBox {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    flex-direction: column;
+    z-index: 999;
+    border-radius: 10px;
+}
+
+#overlay a {
+    margin-top: 5rem;
+    font-size: 20px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #2b2d30;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+#overlay a:hover {
+    background-color: #43454a;
 }

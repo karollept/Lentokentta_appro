@@ -97,10 +97,10 @@ class Wordle {
         const element = document.querySelector('.winScreen')
 
         if (this.progress.join("") === this.answer.join("")) {
-            alert("Voitit :) oikea sana on: " + wordle.answer)
+            naytaOverlay("Voitit :) oikea sana on: " + wordle.answer)
             sendBoolean(true)
         } else if (grid.row > 5) {
-            alert("Hävisit :( oikea sana oli: " + wordle.answer)
+            naytaOverlay("Hävisit :( oikea sana oli: " + wordle.answer)
             sendBoolean(false)
         }
     }
@@ -135,6 +135,12 @@ function answerToList (answer = "KOIRA") {
     return answerListed;
 }
 
+function naytaOverlay(teksti) {
+  document.getElementById('overlayMessage').textContent = teksti;
+  document.getElementById('overlay').style.display = 'flex';
+}
+
+
 let grid;
 let wordle;
 
@@ -149,9 +155,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             wordle = new Wordle(grid, answerToList(answer))
         });
 
-    await fetchStory()
 
-    // 📌📌📌📌 STORY box sulkeminen 📌📌📌📌
+
+    // 📌📌📌📌 STORY box  📌📌📌📌
+    await fetchStory()
     const storyContainer = document.getElementById('storyOverlay');
     const storyClose = document.getElementById('storyClose');
     storyClose.addEventListener('click', () => {
