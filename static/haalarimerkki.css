@@ -15,7 +15,7 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;              /* estää sivun skrollauksen */
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
@@ -27,10 +27,10 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Estää sivun scrollauksen */
+    overflow: hidden;
 }
 
-/* Taustakuva koko alueelle */
+
 body > img {
     position: fixed;
     inset: 0;
@@ -101,7 +101,6 @@ main {
     width: 80%;
     max-width: 1200px;
 
-    /* Gap navin alle */
     margin-top: 2rem;
 
 
