@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Valitse kohde</title>
+    <link rel="stylesheet" href="../static/game.css">
+    <link rel="stylesheet" href="../static/menu.css">
+    <script src="../static/game.js" defer></script>
+    <script src="../static/menu.js" defer></script>
+</head>
+<body>
+
+
+<img src="../static/img/taustakuva_03.jpg" alt="Tausta" id="backgroundImage">
+
+<!-- Burger menu -->
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="nav-menu" id="nav-menu">
+    <ul>
+        <li><a href="/home_page">Koti</a></li>
+        <li><a href="/instructions_page">Ohjeet</a></li>
+        <li><a href="/map_page">Kartta</a></li>
+        <li><a href="../game">Minipelit</a></li>
+        <li><a href="../haalarimerkit">Haalarimerkit</a></li>
+    </ul>
+</div>
+
+<main>
+    <!-- Keskellä musta laatikko -->
+    <div id="choicesBox">
+        <h2>LÄHTEVÄT LENNOT:</h2>
+        <div id="choices">
+            <div class="choice" data-dest="">
+                <div class="dest-name"></div>
+                <div class="dest-price"></div>
+            </div>
+            <div class="choice" data-dest="">
+                <div class="dest-name"></div>
+                <div class="dest-price"></div>
+            </div>
+            <div class="choice" data-dest="">
+                <div class="dest-name"></div>
+                <div class="dest-price"></div>
+            </div>
+        </div>
+        <p class="instruction">VALITSE LENTO JATKAAKSESI</p>
+        <form id="flightForm" action="/game/select_flight" method="POST">
+            <input type="hidden" name="to" id="selectedDest">
+            <button id="flyButton" disabled>JATKA</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

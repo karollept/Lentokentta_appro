@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../static/fonts/Sphere Fez.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyFont2";
+  src: url("../static/fonts/Astrid.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: MyFont, 'Arial', sans-serif;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+#backgroundImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Keskellä musta laatikko */
+#choicesBox {
+    background: #111;
+    color: #e6e600;
+    padding: 40px;
+    border-radius: 12px;
+    width: 400px;
+    margin: 100px auto;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+#choicesBox h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-between;
+    background: #222;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.choice:hover {
+    background: #333;
+}
+
+.choice.selected {
+    border: 2px solid #e6e600;
+}
+
+.dest-name {
+    flex: 1;
+}
+
+.dest-price {
+    margin-left: 20px;
+}
+
+.instruction {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Jatka-nappi */
+#flyButton {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    color: #e6e600;
+    border: 2px solid #e6e600;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#flyButton:disabled {
+    color: #555;
+    border-color: #555;
+    cursor: not-allowed;
+}
+
+#flyButton:not(:disabled):hover {
+    background: #e6e600;
+    color: #111;
+}
+
+/* Burger menu: oletetaan että menu.css sisältää tyylit ja JS handle */
