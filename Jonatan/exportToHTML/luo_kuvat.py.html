@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>luo_kuvat.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #5f826b; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+luo_kuvat.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">PIL </span><span class="s0">import </span><span class="s1">Image</span><span class="s2">, </span><span class="s1">ImageDraw</span>
+
+<span class="s0">def </span><span class="s1">make_circle</span><span class="s2">(</span><span class="s1">filename</span><span class="s2">, </span><span class="s1">size</span><span class="s2">=</span><span class="s3">256</span><span class="s2">, </span><span class="s1">fill</span><span class="s2">=(</span><span class="s3">160</span><span class="s2">,</span><span class="s3">160</span><span class="s2">,</span><span class="s3">160</span><span class="s2">,</span><span class="s3">255</span><span class="s2">), </span><span class="s1">outline</span><span class="s2">=(</span><span class="s3">130</span><span class="s2">,</span><span class="s3">130</span><span class="s2">,</span><span class="s3">130</span><span class="s2">,</span><span class="s3">255</span><span class="s2">), </span><span class="s1">outline_width</span><span class="s2">=</span><span class="s3">6</span><span class="s2">):</span>
+    <span class="s4">&quot;&quot;&quot; 
+    Harmaa ympyrä: 
+    - fill = keskiosa (tummempi) 
+    - outline = reuna (vain vähän tummempi) 
+    &quot;&quot;&quot;</span>
+    <span class="s1">img </span><span class="s2">= </span><span class="s1">Image</span><span class="s2">.</span><span class="s1">new</span><span class="s2">(</span><span class="s5">&quot;RGBA&quot;</span><span class="s2">, (</span><span class="s1">size</span><span class="s2">, </span><span class="s1">size</span><span class="s2">), (</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s2">))</span>
+    <span class="s1">draw </span><span class="s2">= </span><span class="s1">ImageDraw</span><span class="s2">.</span><span class="s1">Draw</span><span class="s2">(</span><span class="s1">img</span><span class="s2">)</span>
+    <span class="s1">draw</span><span class="s2">.</span><span class="s1">ellipse</span><span class="s2">(</span>
+        <span class="s2">[</span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">, </span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">, </span><span class="s1">size</span><span class="s2">-</span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">, </span><span class="s1">size</span><span class="s2">-</span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">],</span>
+        <span class="s1">fill</span><span class="s2">=</span><span class="s1">fill</span><span class="s2">,</span>
+        <span class="s1">outline</span><span class="s2">=</span><span class="s1">outline</span><span class="s2">,</span>
+        <span class="s1">width</span><span class="s2">=</span><span class="s1">outline_width</span>
+    <span class="s2">)</span>
+    <span class="s1">img</span><span class="s2">.</span><span class="s1">save</span><span class="s2">(</span><span class="s1">filename</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Saved:&quot;</span><span class="s2">, </span><span class="s1">filename</span><span class="s2">)</span>
+
+<span class="s0">def </span><span class="s1">make_square</span><span class="s2">(</span><span class="s1">filename</span><span class="s2">, </span><span class="s1">size</span><span class="s2">=</span><span class="s3">256</span><span class="s2">, </span><span class="s1">fill</span><span class="s2">=(</span><span class="s3">160</span><span class="s2">,</span><span class="s3">160</span><span class="s2">,</span><span class="s3">160</span><span class="s2">,</span><span class="s3">255</span><span class="s2">), </span><span class="s1">outline</span><span class="s2">=(</span><span class="s3">130</span><span class="s2">,</span><span class="s3">130</span><span class="s2">,</span><span class="s3">130</span><span class="s2">,</span><span class="s3">255</span><span class="s2">), </span><span class="s1">outline_width</span><span class="s2">=</span><span class="s3">6</span><span class="s2">, </span><span class="s1">radius</span><span class="s2">=</span><span class="s3">30</span><span class="s2">):</span>
+    <span class="s4">&quot;&quot;&quot; 
+    Harmaa neliö: 
+    - fill = keskiosa (tummempi) 
+    - outline = reuna (vain vähän tummempi) 
+    &quot;&quot;&quot;</span>
+    <span class="s1">img </span><span class="s2">= </span><span class="s1">Image</span><span class="s2">.</span><span class="s1">new</span><span class="s2">(</span><span class="s5">&quot;RGBA&quot;</span><span class="s2">, (</span><span class="s1">size</span><span class="s2">, </span><span class="s1">size</span><span class="s2">), (</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s2">,</span><span class="s3">0</span><span class="s2">))</span>
+    <span class="s1">draw </span><span class="s2">= </span><span class="s1">ImageDraw</span><span class="s2">.</span><span class="s1">Draw</span><span class="s2">(</span><span class="s1">img</span><span class="s2">)</span>
+    <span class="s1">draw</span><span class="s2">.</span><span class="s1">rounded_rectangle</span><span class="s2">(</span>
+        <span class="s2">[</span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">, </span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">, </span><span class="s1">size</span><span class="s2">-</span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">, </span><span class="s1">size</span><span class="s2">-</span><span class="s1">outline_width</span><span class="s2">//</span><span class="s3">2</span><span class="s2">],</span>
+        <span class="s1">radius</span><span class="s2">=</span><span class="s1">radius</span><span class="s2">,</span>
+        <span class="s1">fill</span><span class="s2">=</span><span class="s1">fill</span><span class="s2">,</span>
+        <span class="s1">outline</span><span class="s2">=</span><span class="s1">outline</span><span class="s2">,</span>
+        <span class="s1">width</span><span class="s2">=</span><span class="s1">outline_width</span>
+    <span class="s2">)</span>
+    <span class="s1">img</span><span class="s2">.</span><span class="s1">save</span><span class="s2">(</span><span class="s1">filename</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Saved:&quot;</span><span class="s2">, </span><span class="s1">filename</span><span class="s2">)</span>
+
+<span class="s6"># luodaan kuvat</span>
+<span class="s1">make_circle</span><span class="s2">(</span><span class="s5">&quot;static/img/greyCircle.png&quot;</span><span class="s2">)</span>
+<span class="s1">make_square</span><span class="s2">(</span><span class="s5">&quot;static/img/greySquare.png&quot;</span><span class="s2">)</span>
+</pre>
+</body>
+</html>

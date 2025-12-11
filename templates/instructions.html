@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lentokenttä Approt</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../static/styles/instructions.css"></link>
+</head>
+<body>
+  <div class="top-right-buttons">
+  <button class="nav-btn" id="logout-btn" title="Kirjaudu ulos">
+    <i class="fas fa-sign-out-alt"></i> Kirjaudu ulos
+  </button>
+
+  <div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/home_page">Koti</a></li>
+      <li><a href="/instructions_page">Ohjeet</a></li>
+      <li><a href="/map_page">Kartta</a></li>
+      <li><a href="/game">Minipelit</a></li>
+      <li><a href="/haalarimerkit">Haalarimerkit</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+
+    <div class="left-menu">
+      <h2>Ohjeet</h2>
+      <ul>
+        <li><a href="#tavoite">Pelin tavoite</a></li>
+        <li><a href="#aloitus">Pelin aloitus</a></li>
+        <li><a href="#kulku">Pelin kulku</a></li>
+        <li><a href="#minipelit">Minipelit</a></li>
+        <li><a href="#budjetti">Budjetti ja edut</a></li>
+        <li><a href="#eteneminen">Pelin eteneminen</a></li>
+        <li><a href="#loppu">Pelin päättyminen</a></li>
+        <li><a href="#vinkit">Vinkkejä</a></li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+
+      <h3 id="tavoite">Pelin tavoite</h3>
+      <p>Kerää mahdollisimman monta haalarimerkkiä matkustamalla eri lentokenttien välillä. Pelaajalla on rajallinen budjetti ja jokaisella lentokentällä odottaa minipeli, joka täytyy ratkaista merkin saamiseksi.</p>
+
+      <h3 id="aloitus">Pelin aloitus</h3>
+      <p>Peli alkaa Helsinki-Vantaan lentokentältä. Pelaaja syöttää nimensä ja saa 500€ opintolainaa. Tämän jälkeen avautuu ensimmäinen lentotaulukko.</p>
+
+      <h3 id="kulku">Pelin kulku</h3>
+      <p>Pelaaja valitsee lennon. Lipun hinta vähennetään budjetista. Lentokentälle saavuttua pelaaja suorittaa minipelin, jonka onnistuminen antaa uuden haalarimerkin ja mahdollisen bonuksen kuten alennuksen tai lisäbudjettia.</p>
+
+      <h3 id="minipelit">Minipelit</h3>
+      <ul>
+        <li>Tallinna – numeron arvaus 1–5</li>
+        <li>Riika – kivi, sakset tai paperi</li>
+        <li>Berliini – hirsipuu</li>
+      </ul>
+      <p>Minipelin päästä saa haalarimerkin ja usein bonuksen.</p>
+
+      <h3 id="budjetti">Budjetti ja edut</h3>
+      <p>Aloitusbudjetti on 500€. Lento vähentää budjettia, mutta minipeleistä voi saada alennuksia tai lisää rahaa. Jos budjetti laskee alle halvimman lennon hinnan, peli päättyy.</p>
+
+      <h3 id="eteneminen">Pelin eteneminen</h3>
+      <ul>
+        <li>Kaikista lentokentistä ei voi lentää kaikkiin kohteisiin.</li>
+        <li>Alennukset kannattaa säästää kalliisiin lentoihin.</li>
+        <li>Haalarimerkkikokoelma kasvaa minipeleistä.</li>
+      </ul>
+
+      <h3 id="loppu">Pelin päättyminen</h3>
+      <p>Peli päättyy, kun budjetti loppuu, jatkoreittejä ei ole tai kaikki merkit on kerätty. Lopuksi pelaaja saa suoritusarvon: pronssi, hopea tai kulta.</p>
+
+      <h3 id="vinkit">Vinkkejä</h3>
+      <ul>
+        <li>Reitin suunnittelu on tärkeää.</li>
+        <li>Alennuksia kannattaa hyödyntää viisaasti.</li>
+        <li>Minipelit vaikuttavat suoraan kokonaisbudjettiin.</li>
+      </ul>
+
+      <a href="/game" class="back-btn">Palaa peliin</a>
+
+    </div>
+  </div>
+<script src="../static/menu.js"></script>
+
+</body>
+</html>

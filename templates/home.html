@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lentokenttä Approt</title>
+  <link rel="stylesheet" href="../static/styles/home.css">
+</head>
+<body>
+<div class="top-right-buttons">
+  <button class="nav-btn" id="logout-btn" title="Kirjaudu ulos">
+    <i class="fas fa-sign-out-alt"></i> Kirjaudu ulos
+  </button>
+
+  <div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<div class="nav-menu" id="nav-menu">
+    <ul>
+      <li><a href="/home_page">Koti</a></li>
+      <li><a href="/instructions_page">Ohjeet</a></li>
+      <li><a href="/map_page">Kartta</a></li>
+      <li><a href="/game">Minipelit</a></li>
+      <li><a href="/haalarimerkit">Haalarimerkit</a></li>
+    </ul>
+  </div>
+  <main>
+    <h1>Tervetuloa Lentokenttä Approon!</h1>
+    <h2>Olet kirjautunut sisään onnistuneesti</h2>
+    <p>
+      Tässä pelissä matkustat ympäri Eurooppaa, ratkaiset tehtäviä ja ansaitset
+      pisteitä jokaisessa kaupungissa. Sinulla on käytössäsi rajallinen budjetti, 
+      joten valitse lentosi viisaasti!
+    </p>
+    <p>
+      Jokaisessa kohteessa voit suorittaa tehtäviä, kerätä leimoja ja edetä kohti 
+      loppukohdetta. Tarkista budjettisi ennen jokaista lentoa, ja muista: 
+      mitä enemmän leimoja, sitä paremmat palkinnot odottavat sinua.
+    </p>
+    <p>
+      Aloita seikkailusi valitsemalla seuraava lentosi lentotaulusta!
+    </p>
+
+    <button class="btn-start" onclick="window.location.href='/game'">ALOITA MATKA!</button>
+    <div class="logo"><img src="../static/images/logo.png" alt="Lentokenttä Appro" class="logo" /></div>
+  </main>
+  <script src="../static/script/menu.js"></script>
+</body>
+</html>

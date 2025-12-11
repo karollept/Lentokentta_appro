@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matikkavisa</title>
+    <script src="../static/mv.js" defer></script>
+    <script src="../static/info.js" defer></script>
+    <script src="../static/sendBoolean.js"></script>
+    <link rel="stylesheet" href="../static/mv.css">
+    <link rel="stylesheet" href="../static/story.css">
+    <script src="../static/story.js"></script>
+
+</head>
+<body>
+<div id="storyOverlay" class="">
+    <div id="storyBox">
+        <div id="storyClose">&times;</div>
+        <div id="storyContent">
+            Story failed to load!
+        </div>
+    </div>
+</div>
+
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="nav-menu" id="nav-menu">
+    <ul>
+        <li><a href="home.html">Koti</a></li>
+        <li><a href="instructions.html">Ohjeet</a></li>
+        <li><a href="game-map.html">Kartta</a></li>
+        <li><a href="../game">Minipelit</a></li>
+        <li><a href="../haalarimerkit">Haalarimerkit</a></li>
+
+    </ul>
+</div>
+
+<div id="boxi">
+    <h1>Tervetuloa Matikkavisaan!</h1>
+    <p>Sinulla on 40 sekuntia aikaa.<br>Jos vastaat väärin tai aika loppuu, peli päättyy.</p>
+    <button onclick="showQuestion(); startTimer(); disableButton()" id="aloita">Aloita</button>
+
+    <div id="timer">Aikaa jäljellä: 40 s</div>
+    <div id="question">Kysymys:</div>
+    <input type="text" id="answer" placeholder="Vastauksesi">
+    <button onclick="checkAnswer()" id="vastaa">Vastaa</button>
+
+    <div id="result"></div>
+    <div id="final">Kysymyksiä jäljellä: 5/5</div>
+</div>
+
+<div id="overlay">
+    <div id="overlayBox">
+        <div id="overlayMessage"></div>
+        <a href="/game">Jatka</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KPS</title>
+    <script src="../static/kps.js" defer></script>
+    <script src="../static/info.js" defer></script>
+    <script src="../static/sendBoolean.js"></script>
+    <link rel="stylesheet" href="../static/kps.css">
+    <link rel="stylesheet" href="../static/story.css">
+    <script src="../static/story.js"></script>
+</head>
+<body>
+<div id="storyOverlay" class="">
+    <div id="storyBox">
+        <div id="storyClose">&times;</div>
+        <div id="storyContent">
+            Story failed to load!
+        </div>
+    </div>
+</div>
+
+<div class="menu-btn" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="nav-menu" id="nav-menu">
+    <ul>
+        <li><a href="/home_page">Koti</a></li>
+        <li><a href="/instructions_page">Ohjeet</a></li>
+        <li><a href="/map_page">Kartta</a></li>
+        <li><a href="../game">Minipelit</a></li>
+        <li><a href="../haalarimerkit">Haalarimerkit</a></li>
+
+    </ul>
+</div>
+    <div id="boxi">
+        <h1>Tervetuloa Kivi–Sakset–Paperi -peliin!</h1>
+        <p>Ensimmäinen 3 pisteessä voittaa.<br><br>Valitse kivi, sakset tai paperi:</p>
+
+        <div id="kuvat">
+            <img src="../static/img/kivi1.png" alt="kivi" onclick="playRound('kivi')">
+            <img src="../static/img/sakset1.png" alt="sakset" onclick="playRound('sakset')">
+            <img src="../static/img/paperi1.png" alt="paperi" onclick="playRound('paperi')">
+        </div>
+
+        <hr id="hr">
+
+        <div>
+            <img src="../static/img/kivi2.png" alt="kivi3" id="action2">
+            <img src="../static/img/kivi1.png" alt="kivi2" id="action1">
+
+        </div>
+
+      <div id="result">Kierros: 1</div>
+      <div id="score">Pisteet:</div>
+
+    </div>
+        <div id="overlay">
+            <div id="overlayBox">
+                <div id="overlayMessage"></div>
+                <a href="/game">Jatka</a>
+            </div>
+        </div>
+
+
+
+
+
+
+</body>
+</html>
