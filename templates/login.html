@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lentokenttä Approt</title>
+  <link rel="stylesheet" href="../static/styles/login.css">
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <h1>TERVETULOA LENTOKENTTÄ APPROILLE!</h1>
+
+      <form id="loginForm" autocomplete="off">
+        <label for="nimi">Käyttäjänimi:</label>
+        <input id="nimi" type="text" maxlength="30" required />
+
+        <label for="salasana">Salasana:</label>
+        <input id="salasana" type="password" required />
+
+        <div id="playerArea" class="player-area" aria-hidden="true">
+          <div class="player-input-row">
+            <label for="playerId" style="margin:0;white-space:nowrap;">Pelaajanimi:</label>
+            <input id="playerId" type="text" placeholder="esim. FALCON_7" maxlength="30" />
+          </div>
+
+          <div class="player-suggestions-row">
+            <div class="suggestions" id="suggestions"></div>
+          </div>
+
+          <div class="player-buttons-row">
+            <button type="button" id="useUsernameBtn" class="small-btn">Käytä käyttäjänimeä</button>
+            <button type="button" id="regenerateBtn" class="small-btn">Uusi ehdotus</button>
+          </div>
+        </div>
+
+        <label>Vaikeustaso</label>
+        <div class="difficulty">
+          <button type="button" class="diff-btn" data-value="Helppo">HELPPO</button>
+          <button type="button" class="diff-btn" data-value="Vaikea">VAIKEA</button>
+        </div>
+
+        <div class="bottom-row" role="group" aria-label="actions">
+          <div class="corner">
+            <button type="button" id="signupBtn" class="modal-btn">Sign Up</button>
+          </div>
+
+          <div class="center">
+            <button id="aloita" class="start" type="submit">ALOITA</button>
+          </div>
+
+          <div class="corner">
+            <button type="button" id="adminBtn" class="modal-btn">Admin Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="signupModal" class="modal">
+    <div class="box">
+      <h3>Sign Up</h3>
+      <div style="display:flex;flex-direction:column;margin-top:8px;">
+        <input id="su_name" type="text" placeholder="Nimi" />
+        <input id="su_age" type="number" placeholder="Ikä" />
+        <input id="su_pass" type="password" placeholder="Salasana" />
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+          <button id="su_cancel" class="cancel-btn">Peruuta</button>
+          <button id="su_create" class="submit-btn">Luo tili</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminModal" class="modal">
+    <div class="box">
+      <h3>Admin Login</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+        <input id="ad_user" type="text" placeholder="Käyttäjätunnus" />
+        <input id="ad_pass" type="password" placeholder="Salasana" />
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+          <button id="ad_cancel" class="cancel-btn">Peruuta</button>
+          <button id="ad_login" class="submit-btn">Kirjaudu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="../static/script/login.js"></script>
+</body>
+</html>

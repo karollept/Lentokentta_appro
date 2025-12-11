@@ -1,0 +1,129 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Taustakuva koko alueelle */
+body > img {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* NAVIN KONTTI */
+nav {
+    position: absolute;
+    top: 1.5rem;
+    right: 10rem;
+
+    width: 70%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: white;
+
+    border: 0.1rem solid #856DD9;
+    padding: 0 2rem;
+}
+
+/* Sijainti- ja budjettisektiot */
+#sijainti, #budjetti {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+#sijainti img {
+    height: 3rem;
+    width: 3rem;
+}
+
+#sijainti p,
+#budjetti p {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #856DD9;
+
+}
+#budjetti {
+    margin-left: 8rem;
+}
+/* Mainin ulkoinen boksi */
+/* Main Flex: grid vasemmalle, tekstit oikealle */
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: calc(1.5rem + 70px + 2rem); /* nav + gap 2rem */
+    left: 10rem;
+    right: 10rem;
+    bottom: 5rem;
+    background-color: rgba(255,255,255,0.9);
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+/* Grid vasemmalle */
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 5rem);
+    grid-template-rows: repeat(6, 5rem);
+    gap: 1rem;
+    justify-content: start;
+    align-content: start; /* alin rivi 6rem pohjasta */
+    padding-left: 10rem;
+    margin-top: 1.5rem;
+}
+
+/* Wordle-neliöt */
+.tile {
+    background-color: #FFFF;
+    border: 2px solid #856DD9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Tekstit oikealle */
+#text-container {
+    max-width: 50%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    gap: 2rem;
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+
+#text-container h1 {
+    font-size: 4rem;
+    color: #856DD9;
+    margin: 0;
+    text-align: center;
+}
+
+#wordle-saannot{
+    font-size: 1.5rem;
+    margin: 0;
+    overflow: auto;
+    text-align: left;
+    flex-grow: 1;
+    height: 0;
+    min-height: 0;
+
+    box-sizing: border-box;
+}

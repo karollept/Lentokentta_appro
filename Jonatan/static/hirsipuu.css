@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Taustakuva koko alueelle */
+body > img {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* NAVIN KONTTI */
+nav {
+    position: absolute;
+    top: 1.5rem;
+    right: 10rem;
+
+    width: 70%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: white;
+
+    border: 0.1rem solid #856DD9;
+    padding: 0 2rem;
+}
+
+/* Sijainti- ja budjettisektiot */
+#sijainti, #budjetti {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+#sijainti img {
+    height: 3rem;
+    width: 3rem;
+}
+
+#sijainti p,
+#budjetti p {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #856DD9;
+}
+#budjetti {
+    margin-left: 8rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: calc(1.5rem + 70px + 2rem);
+    left: 10rem;
+    right: 10rem;
+    bottom: 5rem;
+    background-color: rgba(255,255,255,0.9);
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+
+#right {
+    width: 30%;
+    height: 100%;
+}
+
+.guessedLetters {
+    background: white;
+    border: 0.2rem solid #856DD9; /* liila */
+    border-radius: 4rem;
+    padding: 1rem;
+    height: 40%;
+}
+
+.letterTitle {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+    text-align: center; /* keskittää tekstin */
+}
+
+.divider {
+    height: 0.2rem;
+    background: #856DD9;
+    width: calc(100% + 2rem);   /* 100% + left+right padding */
+    margin-left: -1rem;         /* kumoaa vasemman paddingin */
+    margin-right: -1rem;        /* kumoaa oikean paddingin */
+}
+
+.guessedLetters p {
+    font-size: 5.5vmin;
+}
+
+
+/* FORMI */
+#right form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* keskitä X-akselilla */
+    margin-top: 20%;         /* erotus guessedLetters-boksista */
+}
+
+/* INPUT-KENTTÄ */
+#right form input {
+    width: 80%;               /* 80% right-elementin leveydestä */
+    max-width: 400px;         /* optional: estää liian suuren koon */
+    padding: 0.8rem;
+    border: 0.2rem solid #856DD9;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    box-sizing: border-box;   /* varmistaa ettei valu yli */
+}
+
+
+/* NAPPI */
+#right form button {
+    margin-top: 1rem;         /* 1rem gap inputiin */
+    padding: 0.8rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #5eaecf; /* turkoosi */
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* Button hover*/
+#guessButton {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#guessButton:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.25);
+}
+
+/* Vasen puoli main sisällä.*/
+#left {
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+#hangman-img {
+    position: absolute;       /* keskitetään vain tämä kuva */
+    top: 30%;                 /* keskitetään y-akselilla */
+    left: 50%;                /* keskitetään x-akselilla */
+    transform: translate(-50%, -50%) scale(1);
+    width: clamp(100px, 40vw, 100vw);
+    height: auto;
+}
+
+.correctLetters {
+    position: absolute;
+    bottom: 3rem;             /* alhaalla #left:issä */
+    width: 100%;
+    text-align: center;        /* keskittää tekstin horisontaalisesti */
+    font-size: 8vmin;
+}
